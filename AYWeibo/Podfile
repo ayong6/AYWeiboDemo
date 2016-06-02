@@ -1,0 +1,4 @@
+platform :ios, '8.0' // platform :tvos, '9.0' (for tvOS)
+use_frameworks!
+
+pod 'QorumLogs'
