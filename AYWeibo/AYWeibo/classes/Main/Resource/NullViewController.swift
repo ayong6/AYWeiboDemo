@@ -8,12 +8,11 @@
 
 import UIKit
 
-class NullViewController: UIViewController {
+class NullViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.redColor()
     }
 
     override func didReceiveMemoryWarning() {

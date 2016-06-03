@@ -22,6 +22,20 @@ class MainViewController: UITabBarController {
         addChildViewControllers()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 添加按钮
+        tabBar.addSubview(composeBtn)
+        
+        // 设置按钮frame
+        let reck = composeBtn.frame
+        let width = tabBar.bounds.width / CGFloat(self.childViewControllers.count)
+        
+        composeBtn.frame = CGRectMake(2 * width, 0, width, reck.height)
+    }
+    
+    // MARK: - 方法实现
+    
     // 添加所以的子控件
     func addChildViewControllers() {
         // 1.获取json文件路径
@@ -99,19 +113,47 @@ class MainViewController: UITabBarController {
         // 6.添加子控制器到UITabBarController
         addChildViewController(nav)
     }
-//    // 添加一个子控制器
-//    func addChildViewController(childController: UIViewController, title: String, image: String) {
-//        // 1.设置子控制器相关属性
-//        childController.title = title
-//        childController.tabBarItem.image = UIImage(named: image)
-//        childController.tabBarItem.selectedImage = UIImage(named: image + "_highlighted")
-//        
-//        // 2.包装一个导航控制器
-//        let nav = UINavigationController(rootViewController: childController)
-//        
-//        // 3.添加子控制器到UITabBarController
-//        addChildViewController(nav)
-//        print(childController)
-//    }
+    /*
+    // 添加一个子控制器
+    func addChildViewController(childController: UIViewController, title: String, image: String) {
+        // 1.设置子控制器相关属性
+        childController.title = title
+        childController.tabBarItem.image = UIImage(named: image)
+        childController.tabBarItem.selectedImage = UIImage(named: image + "_highlighted")
+        
+        // 2.包装一个导航控制器
+        let nav = UINavigationController(rootViewController: childController)
+        
+        // 3.添加子控制器到UITabBarController
+        addChildViewController(nav)
+        print(childController)
+    }
+    */
     
+    // 按钮监听方法
+    func composeBtnClick() {
+        QL2("按钮监听")
+    }
+    
+    // MARK: - 懒加载
+    lazy var composeBtn: UIButton = {
+        // 1.创建按钮
+        let btn = UIButton()
+        
+        // 2.设置前景图片
+        btn.setImage(UIImage(named:"tabbar_compose_icon_add"), forState: .Normal)
+        btn.setImage(UIImage(named:"tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
+        
+        // 3.设置背景图片
+        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button"), forState: .Normal)
+        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button_highlighted"), forState: .Highlighted)
+        
+        btn.sizeToFit()
+        
+        // 4.添加按钮监听
+        btn.addTarget(self, action: #selector(self.composeBtnClick), forControlEvents: .TouchUpInside)
+        
+        return btn
+    }()
 }
+
