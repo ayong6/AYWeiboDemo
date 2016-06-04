@@ -24,8 +24,14 @@ class VisitorView: UIView {
     /// 图标图片
     @IBOutlet private var iconImgView: UIImageView!
     
+    // MARK: - 外部方法
+    class func visitorView() -> VisitorView {
+        let vistView = NSBundle.mainBundle().loadNibNamed("VisitorView", owner: nil, options: nil).first as! VisitorView
+        return vistView
+    }
     
-    // MARK: - 内部控件方法
+    
+    // MARK: - 内部方法
     
     /// 提供设置访客视图上的数据
     func setupVisitorInfo(imageName: String?, title: String) {
@@ -59,11 +65,5 @@ class VisitorView: UIView {
         animation.removedOnCompletion = false // 切换视图控制器时候动画继续
         
         rotationImgView.layer.addAnimation(animation, forKey: nil)
-    }
-    
-    // MARK: - 类方法
-    class func visitorView() -> VisitorView {
-        let vistView = NSBundle.mainBundle().loadNibNamed("VisitorView", owner: nil, options: nil).first as! VisitorView
-        return vistView
     }
 }

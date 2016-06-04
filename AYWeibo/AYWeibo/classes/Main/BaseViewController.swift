@@ -20,7 +20,7 @@ class BaseViewController: UITableViewController {
         isLogin ? super.loadView() : setupVistorView()
     }
     
-    // MARK: - 内部控件方法
+    // MARK: - 内部控制方法
     private func setupVistorView() {
         
         // 1.创建访客视图
