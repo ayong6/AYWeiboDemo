@@ -34,7 +34,7 @@ class MainViewController: UITabBarController {
         composeBtn.frame = CGRectMake(2 * width, 0, width, reck.height)
     }
     
-    // MARK: - 方法实现
+    // MARK: - 内部方法实现
     
     // 添加所以的子控件
     func addChildViewControllers() {
@@ -113,22 +113,6 @@ class MainViewController: UITabBarController {
         // 6.添加子控制器到UITabBarController
         addChildViewController(nav)
     }
-    /*
-    // 添加一个子控制器
-    func addChildViewController(childController: UIViewController, title: String, image: String) {
-        // 1.设置子控制器相关属性
-        childController.title = title
-        childController.tabBarItem.image = UIImage(named: image)
-        childController.tabBarItem.selectedImage = UIImage(named: image + "_highlighted")
-        
-        // 2.包装一个导航控制器
-        let nav = UINavigationController(rootViewController: childController)
-        
-        // 3.添加子控制器到UITabBarController
-        addChildViewController(nav)
-        print(childController)
-    }
-    */
     
     // 按钮监听方法
     func composeBtnClick() {

@@ -17,6 +17,9 @@
 		DD699CAA1CEBADEE00E4704D /* AYWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD699CA91CEBADEE00E4704D /* AYWeiboTests.swift */; };
 		DD699CB51CEBADEE00E4704D /* AYWeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD699CB41CEBADEE00E4704D /* AYWeiboUITests.swift */; };
 		DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD699CC81CEC09B500E4704D /* QorumLogs.swift */; };
+		DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1ADC41D02D1A700AD1966 /* BaseViewController.swift */; };
+		DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1ADC61D02D9D200AD1966 /* VisitorView.swift */; };
+		DDB1ADC91D02D9F300AD1966 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */; };
 		DDBDE9F61CFD813A00048845 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = DDBDE9F41CFD813A00048845 /* MainVCSettings.json */; };
 		DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBDE9F51CFD813A00048845 /* NullViewController.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +58,9 @@
 		DD699CB41CEBADEE00E4704D /* AYWeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYWeiboUITests.swift; sourceTree = "<group>"; };
 		DD699CB61CEBADEE00E4704D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD699CC81CEC09B500E4704D /* QorumLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QorumLogs.swift; sourceTree = "<group>"; };
+		DDB1ADC41D02D1A700AD1966 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DDB1ADC61D02D9D200AD1966 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		DDBDE9F41CFD813A00048845 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		DDBDE9F51CFD813A00048845 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +132,9 @@
 			children = (
 				DDBDE9F31CFD813A00048845 /* Resource */,
 				DD677FD21CED686F004F0A4C /* MainViewController.swift */,
+				DDB1ADC41D02D1A700AD1966 /* BaseViewController.swift */,
+				DDB1ADC61D02D9D200AD1966 /* VisitorView.swift */,
+				DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -318,6 +327,7 @@
 			files = (
 				DDBDE9F61CFD813A00048845 /* MainVCSettings.json in Resources */,
 				DD699C9C1CEBADEE00E4704D /* Assets.xcassets in Resources */,
+				DDB1ADC91D02D9F300AD1966 /* VisitorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +357,9 @@
 				DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */,
 				DD699C951CEBADEE00E4704D /* AppDelegate.swift in Sources */,
 				DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */,
+				DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */,
 				DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */,
+				DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */,
 				DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */,
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,
 			);
