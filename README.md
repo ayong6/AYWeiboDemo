@@ -1,2 +1,2 @@
 # AYWeiboDemo
-跟着教程练习
+练习：仿微博APP
