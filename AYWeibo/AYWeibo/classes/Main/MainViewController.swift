@@ -30,8 +30,9 @@ class MainViewController: UITabBarController {
         // 设置按钮frame
         let reck = composeBtn.frame
         let width = tabBar.bounds.width / CGFloat(self.childViewControllers.count)
+        let y = (tabBar.bounds.height - reck.height) / 2
         
-        composeBtn.frame = CGRectMake(2 * width, 0, width, reck.height)
+        composeBtn.frame = CGRectMake(2 * width, y, width, reck.height)
     }
     
     // MARK: - 内部方法实现
@@ -122,19 +123,9 @@ class MainViewController: UITabBarController {
     // MARK: - 懒加载
     lazy var composeBtn: UIButton = {
         // 1.创建按钮
-        let btn = UIButton()
+        let btn = UIButton(imageName: "tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
         
-        // 2.设置前景图片
-        btn.setImage(UIImage(named:"tabbar_compose_icon_add"), forState: .Normal)
-        btn.setImage(UIImage(named:"tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
-        
-        // 3.设置背景图片
-        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button"), forState: .Normal)
-        btn.setBackgroundImage(UIImage(named:"tabbar_compose_button_highlighted"), forState: .Highlighted)
-        
-        btn.sizeToFit()
-        
-        // 4.添加按钮监听
+        // 2.添加按钮监听
         btn.addTarget(self, action: #selector(self.composeBtnClick), forControlEvents: .TouchUpInside)
         
         return btn

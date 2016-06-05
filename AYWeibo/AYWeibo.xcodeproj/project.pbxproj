@@ -22,6 +22,8 @@
 		DDB1ADC91D02D9F300AD1966 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */; };
 		DDBDE9F61CFD813A00048845 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = DDBDE9F41CFD813A00048845 /* MainVCSettings.json */; };
 		DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBDE9F51CFD813A00048845 /* NullViewController.swift */; };
+		DDD290B91D0425DC003C31AA /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */; };
+		DDD290BB1D042CA1003C31AA /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		DDBDE9F41CFD813A00048845 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		DDBDE9F51CFD813A00048845 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
+		DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 		DD677FC71CED6038004F0A4C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */,
+				DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD290B91D0425DC003C31AA /* UIButtonExtension.swift in Sources */,
 				DD677FD31CED686F004F0A4C /* MainViewController.swift in Sources */,
 				DD677FD11CED6626004F0A4C /* ProfileTableViewController.swift in Sources */,
 				DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */,
@@ -359,6 +366,7 @@
 				DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */,
 				DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */,
 				DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */,
+				DDD290BB1D042CA1003C31AA /* UIBarButtonItemExtension.swift in Sources */,
 				DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */,
 				DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */,
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,

@@ -11,7 +11,7 @@ import UIKit
 class BaseViewController: UITableViewController {
     
     /// 标记用户登录状态 true为登录，false为没有登录
-    var isLogin = false
+    var isLogin = true
     
     /// 访客视图
     var visitorView: VisitorView?
