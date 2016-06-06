@@ -17,29 +17,22 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visitordiscover_feed_mask_smallicon" translatesAutoresizingMaskIntoConstraints="NO" id="jLY-NH-OT2" userLabel="蒙版">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="315" id="5fy-cu-T1a"/>
+                        <constraint firstAttribute="height" constant="315" id="ew9-Um-NoM"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visitordiscover_feed_image_house" translatesAutoresizingMaskIntoConstraints="NO" id="1Tp-3U-VYp" userLabel="图标">
                     <rect key="frame" x="140" y="213" width="94" height="90"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="94" id="1Y5-YZ-fXX"/>
-                        <constraint firstAttribute="height" constant="90" id="WIj-9B-kVb"/>
-                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labellabellabellabellabellabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5R-rM-ABI" userLabel="标题">
                     <rect key="frame" x="77" y="346" width="220" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="220" id="YtT-0j-PtI"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1T-Vs-Wb9">
                     <rect key="frame" x="77" y="395" width="80" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="AZd-VV-wf0"/>
+                        <constraint firstAttribute="width" constant="80" id="iNH-U7-w7M"/>
                     </constraints>
                     <state key="normal" title="注册" backgroundImage="common_button_white_disable">
                         <color key="titleColor" red="0.97380977349999998" green="0.52805138829999998" blue="0.06839253109" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,9 +40,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBF-g9-cyb">
                     <rect key="frame" x="217" y="395" width="80" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="bEv-v1-b9D"/>
-                    </constraints>
                     <state key="normal" title="登入" backgroundImage="common_button_white_disable">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -57,19 +47,21 @@
             </subviews>
             <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="jLY-NH-OT2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="23c-cV-Nf8"/>
-                <constraint firstAttribute="trailing" secondItem="jLY-NH-OT2" secondAttribute="trailing" id="4zV-TQ-CUg"/>
-                <constraint firstItem="WxF-vU-oyD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ior-b0-GI4"/>
-                <constraint firstItem="sBF-g9-cyb" firstAttribute="top" secondItem="o5R-rM-ABI" secondAttribute="bottom" constant="28" id="MA9-eG-jYc"/>
-                <constraint firstItem="1Tp-3U-VYp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Nf3-cW-NcD"/>
-                <constraint firstItem="sBF-g9-cyb" firstAttribute="trailing" secondItem="o5R-rM-ABI" secondAttribute="trailing" id="PV7-og-3SH"/>
-                <constraint firstItem="WxF-vU-oyD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-100" id="SFJ-5e-W0o"/>
-                <constraint firstItem="o5R-rM-ABI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SS7-hC-6As"/>
-                <constraint firstItem="jLY-NH-OT2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ths-xj-hjb"/>
-                <constraint firstItem="T1T-Vs-Wb9" firstAttribute="top" secondItem="o5R-rM-ABI" secondAttribute="bottom" constant="28" id="XCq-je-uFk"/>
-                <constraint firstItem="T1T-Vs-Wb9" firstAttribute="leading" secondItem="o5R-rM-ABI" secondAttribute="leading" id="qzO-ql-xJo"/>
-                <constraint firstItem="o5R-rM-ABI" firstAttribute="top" secondItem="1Tp-3U-VYp" secondAttribute="bottom" constant="42.5" id="w1C-Gj-etn"/>
-                <constraint firstItem="1Tp-3U-VYp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-75" id="xls-LR-apF"/>
+                <constraint firstItem="jLY-NH-OT2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Dw-aE-3Pp"/>
+                <constraint firstItem="o5R-rM-ABI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="77" id="74C-wu-38t"/>
+                <constraint firstItem="T1T-Vs-Wb9" firstAttribute="baseline" secondItem="sBF-g9-cyb" secondAttribute="baseline" id="8VV-M6-p1c"/>
+                <constraint firstItem="o5R-rM-ABI" firstAttribute="trailing" secondItem="sBF-g9-cyb" secondAttribute="trailing" id="B3L-nT-kDY"/>
+                <constraint firstAttribute="trailing" secondItem="jLY-NH-OT2" secondAttribute="trailing" id="Bh1-zi-u8N"/>
+                <constraint firstItem="o5R-rM-ABI" firstAttribute="leading" secondItem="T1T-Vs-Wb9" secondAttribute="leading" id="EDP-SP-J4B"/>
+                <constraint firstItem="o5R-rM-ABI" firstAttribute="top" secondItem="1Tp-3U-VYp" secondAttribute="bottom" constant="43" id="IQU-y1-GV2"/>
+                <constraint firstItem="1Tp-3U-VYp" firstAttribute="centerX" secondItem="o5R-rM-ABI" secondAttribute="centerX" id="J48-mh-8tf"/>
+                <constraint firstItem="jLY-NH-OT2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qep-rW-JRc"/>
+                <constraint firstItem="sBF-g9-cyb" firstAttribute="leading" secondItem="T1T-Vs-Wb9" secondAttribute="trailing" constant="60" id="UrE-7y-a6U"/>
+                <constraint firstItem="WxF-vU-oyD" firstAttribute="centerX" secondItem="1Tp-3U-VYp" secondAttribute="centerX" id="jhU-CG-kQu"/>
+                <constraint firstItem="o5R-rM-ABI" firstAttribute="top" secondItem="jLY-NH-OT2" secondAttribute="bottom" constant="31" id="m9a-JW-DFO"/>
+                <constraint firstItem="jLY-NH-OT2" firstAttribute="centerX" secondItem="1Tp-3U-VYp" secondAttribute="centerX" id="xR5-MK-jBx"/>
+                <constraint firstItem="o5R-rM-ABI" firstAttribute="top" secondItem="WxF-vU-oyD" secondAttribute="bottom" constant="25" id="z6w-Xg-p9W"/>
+                <constraint firstItem="T1T-Vs-Wb9" firstAttribute="top" secondItem="o5R-rM-ABI" secondAttribute="bottom" constant="28" id="zj8-Jz-OU6"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

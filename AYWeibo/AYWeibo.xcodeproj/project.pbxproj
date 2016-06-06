@@ -24,6 +24,7 @@
 		DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBDE9F51CFD813A00048845 /* NullViewController.swift */; };
 		DDD290B91D0425DC003C31AA /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */; };
 		DDD290BB1D042CA1003C31AA /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */; };
+		DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BE1D05C28E003C31AA /* TitleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		DDBDE9F51CFD813A00048845 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
+		DDD290BE1D05C28E003C31AA /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */,
 				DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */,
+				DDD290BE1D05C28E003C31AA /* TitleButton.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				DDD290BB1D042CA1003C31AA /* UIBarButtonItemExtension.swift in Sources */,
 				DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */,
 				DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */,
+				DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */,
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

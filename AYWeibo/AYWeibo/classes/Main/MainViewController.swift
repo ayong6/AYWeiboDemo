@@ -72,6 +72,7 @@ class MainViewController: UITabBarController {
             QL2("json解析失败，创建默认子控制器")
             addChildViewController("HomeTableViewController", title: "首页", image: "tabbar_home") // 首页
             addChildViewController("MessageTableViewController", title: "消息", image: "tabbar_message_center") // 消息
+            addChildViewController("NullViewController", title: "", image: "") // 加好按钮
             addChildViewController("DiscoverTableViewController", title: "发现", image: "tabbar_discover") // 发现
             addChildViewController("ProfileTableViewController", title: "我", image: "tabbar_profile") // 我
         }
