@@ -47,8 +47,26 @@ class HomeTableViewController: BaseViewController {
     
     // 标题按钮监听方法
     @objc private func titleBtnClick(sender: TitleButton){
-        QL2("")
+        // 1.按钮选中状态
         sender.selected = !sender.selected
+        
+        // 2.modal控制器
+        // 2.1 获取storyboard
+        let sb = UIStoryboard(name: "Popover", bundle: nil)
+        
+        // 2.2 获取控制器
+        guard let presentControl = sb.instantiateInitialViewController() else {
+            QL2("获取控制器失败")
+            return
+        }
+        
+        // 设置代理,自定义尺寸
+        presentControl.transitioningDelegate = self
+        presentControl.modalPresentationStyle = .Custom
+        
+        // 2.3 modal控制器
+        presentViewController(presentControl, animated: true, completion: nil)
+        
     }
     
     /// 左侧导航条按钮监听方法
@@ -60,6 +78,14 @@ class HomeTableViewController: BaseViewController {
     @objc private func rightBarButtonItemClick() {
         QL2("")
     }
+}
 
+// MARK - extention
+extension HomeTableViewController: UIViewControllerTransitioningDelegate {
     
+    // 自定义modal尺寸
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        
+        return AYPresentationController(presentedViewController: presented, presentingViewController: presenting)
+    }
 }
