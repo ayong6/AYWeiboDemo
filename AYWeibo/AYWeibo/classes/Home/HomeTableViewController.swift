@@ -24,6 +24,10 @@ class HomeTableViewController: BaseViewController {
         setupNavigationBar()
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: - 内部控制方法
     
     private func setupNavigationBar() {
@@ -87,5 +91,14 @@ extension HomeTableViewController: UIViewControllerTransitioningDelegate {
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
         
         return AYPresentationController(presentedViewController: presented, presentingViewController: presenting)
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return AYViewControllerAnimatedTransitioning(isPresenting: true)
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return AYViewControllerAnimatedTransitioning(isPresenting: false)
     }
 }
