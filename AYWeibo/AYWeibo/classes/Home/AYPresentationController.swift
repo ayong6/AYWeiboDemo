@@ -46,17 +46,6 @@ class AYPresentationController: UIPresentationController {
     
     override func frameOfPresentedViewInContainerView() -> CGRect {
         
-//        guard
-//            let containerView = containerView
-//        else
-//        {
-//            return CGRect()
-//        }
-//        
-//        var rect = CGRectInset(containerView.frame, 100, 100)
-//        rect.origin.y = 50
-//        
-//        return rect
         return presentFrame
     }
     

@@ -44,9 +44,8 @@ class HomeTableViewController: BaseViewController {
     
     // MARK: - 内部控制方法
     
-    // 接受到通知后的实现方法
+    // 接收到通知后的实现方法
     @objc private func titleChange() {
-        // 设置按钮选中状态
         titleButton.selected = !titleButton.selected
     }
     
@@ -88,13 +87,13 @@ class HomeTableViewController: BaseViewController {
     
     /// 右侧导航条按钮监听方法
     @objc private func rightBarButtonItemClick() {
-        QL2("")
+        let nav = UINavigationController(rootViewController: QRCordViewController())
+        nav.navigationBar.barTintColor = UIColor.blackColor()
+        nav.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        presentViewController(nav, animated: true, completion: nil)
     }
     
-    // MARK: - 外部实现方法
-    func buttomSeleted() {
-        
-    }
 }
 
 

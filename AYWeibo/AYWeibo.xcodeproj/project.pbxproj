@@ -29,6 +29,8 @@
 		DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290C31D06C684003C31AA /* AYPresentationController.swift */; };
 		DDD291061D098FCE003C31AA /* AYTransitioningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291051D098FCE003C31AA /* AYTransitioningManager.swift */; };
 		DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291071D0A183A003C31AA /* PopoverViewController.swift */; };
+		DDD2910B1D0ADF7B003C31AA /* QRCordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2910A1D0ADF7B003C31AA /* QRCordViewController.swift */; };
+		DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		DDD290C31D06C684003C31AA /* AYPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYPresentationController.swift; sourceTree = "<group>"; };
 		DDD291051D098FCE003C31AA /* AYTransitioningManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYTransitioningManager.swift; sourceTree = "<group>"; };
 		DDD291071D0A183A003C31AA /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		DDD2910A1D0ADF7B003C31AA /* QRCordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCordViewController.swift; sourceTree = "<group>"; };
+		DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarItemExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 		DD677FC31CED6038004F0A4C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DDD291091D0ADDBE003C31AA /* QRCord */,
 				DDD290C01D06B868003C31AA /* Popover */,
 				DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */,
 			);
@@ -175,6 +180,7 @@
 			children = (
 				DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */,
 				DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */,
+				DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */,
 				DDD290BE1D05C28E003C31AA /* TitleButton.swift */,
 			);
 			path = Tools;
@@ -248,6 +254,14 @@
 				DDD291051D098FCE003C31AA /* AYTransitioningManager.swift */,
 			);
 			name = Popover;
+			sourceTree = "<group>";
+		};
+		DDD291091D0ADDBE003C31AA /* QRCord */ = {
+			isa = PBXGroup;
+			children = (
+				DDD2910A1D0ADF7B003C31AA /* QRCordViewController.swift */,
+			);
+			name = QRCord;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */,
 				DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */,
 				DDD290B91D0425DC003C31AA /* UIButtonExtension.swift in Sources */,
 				DD677FD31CED686F004F0A4C /* MainViewController.swift in Sources */,
@@ -398,6 +413,7 @@
 				DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */,
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,
 				DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */,
+				DDD2910B1D0ADF7B003C31AA /* QRCordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

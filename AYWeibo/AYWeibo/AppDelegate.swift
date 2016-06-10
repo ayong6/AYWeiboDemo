@@ -28,7 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 设置导航条颜色
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
-        
+    
+        // 设置标签栏背景色和样式颜色
+        UITabBar.appearance().tintColor = UIColor.orangeColor()
+
         return true
     }
 

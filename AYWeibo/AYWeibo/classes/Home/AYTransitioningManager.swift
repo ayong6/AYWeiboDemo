@@ -8,12 +8,6 @@
 
 import UIKit
 
-// 通知的信息名
-/// 呈现
-let AYTransitioningManagerPresented = "AYTransitioningManagerPresented"
-/// 消失
-let AYTransitioningManagerDismissed = "AYTransitioningManagerDismissed"
-
 class AYTransitioningManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
     private let duration: NSTimeInterval = 0.5 // 动画执行时间
     private var isPresenting: Bool = false // 标记当前是否呈现
@@ -115,3 +109,10 @@ class AYTransitioningManager: NSObject, UIViewControllerAnimatedTransitioning, U
         }
     }
 }
+
+// 定义通知的信息名
+/// 呈现
+let AYTransitioningManagerPresented = "AYTransitioningManagerPresented"
+/// 消失
+let AYTransitioningManagerDismissed = "AYTransitioningManagerDismissed"
+

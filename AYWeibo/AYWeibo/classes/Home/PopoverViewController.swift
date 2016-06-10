@@ -18,11 +18,6 @@ class PopoverViewController: UIViewController {
         
         return tm
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,7 +28,6 @@ class PopoverViewController: UIViewController {
         super.init(coder: aDecoder)
         commonInit()
     }
-
     
     // MARK: - 内部实现方法
     private func commonInit() {
