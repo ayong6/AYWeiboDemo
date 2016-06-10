@@ -27,7 +27,8 @@
 		DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BE1D05C28E003C31AA /* TitleButton.swift */; };
 		DDD290C21D06B88A003C31AA /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD290C11D06B88A003C31AA /* Popover.storyboard */; };
 		DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290C31D06C684003C31AA /* AYPresentationController.swift */; };
-		DDD291061D098FCE003C31AA /* AYViewControllerAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291051D098FCE003C31AA /* AYViewControllerAnimatedTransitioning.swift */; };
+		DDD291061D098FCE003C31AA /* AYTransitioningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291051D098FCE003C31AA /* AYTransitioningManager.swift */; };
+		DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291071D0A183A003C31AA /* PopoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,8 @@
 		DDD290BE1D05C28E003C31AA /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		DDD290C11D06B88A003C31AA /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		DDD290C31D06C684003C31AA /* AYPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYPresentationController.swift; sourceTree = "<group>"; };
-		DDD291051D098FCE003C31AA /* AYViewControllerAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYViewControllerAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		DDD291051D098FCE003C31AA /* AYTransitioningManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYTransitioningManager.swift; sourceTree = "<group>"; };
+		DDD291071D0A183A003C31AA /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,8 +243,9 @@
 			isa = PBXGroup;
 			children = (
 				DDD290C11D06B88A003C31AA /* Popover.storyboard */,
+				DDD291071D0A183A003C31AA /* PopoverViewController.swift */,
 				DDD290C31D06C684003C31AA /* AYPresentationController.swift */,
-				DDD291051D098FCE003C31AA /* AYViewControllerAnimatedTransitioning.swift */,
+				DDD291051D098FCE003C31AA /* AYTransitioningManager.swift */,
 			);
 			name = Popover;
 			sourceTree = "<group>";
@@ -379,11 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */,
 				DDD290B91D0425DC003C31AA /* UIButtonExtension.swift in Sources */,
 				DD677FD31CED686F004F0A4C /* MainViewController.swift in Sources */,
 				DD677FD11CED6626004F0A4C /* ProfileTableViewController.swift in Sources */,
 				DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */,
-				DDD291061D098FCE003C31AA /* AYViewControllerAnimatedTransitioning.swift in Sources */,
+				DDD291061D098FCE003C31AA /* AYTransitioningManager.swift in Sources */,
 				DD699C951CEBADEE00E4704D /* AppDelegate.swift in Sources */,
 				DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */,
 				DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */,

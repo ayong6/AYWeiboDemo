@@ -10,28 +10,61 @@ import UIKit
 
 class AYPresentationController: UIPresentationController {
     
-    // 布局modal出来的控制器的尺寸
-//    override func containerViewWillLayoutSubviews() {
-//        super.containerViewWillLayoutSubviews()
-//        
-//        let x = (UIScreen.mainScreen().bounds.width - 200) / 2
-//        
-//        presentedView()?.frame = CGRectMake(x, 50, 200, 400)
-//    }
+    var presentFrame = CGRectZero
     
-    override func frameOfPresentedViewInContainerView() -> CGRect {
+    private lazy var btnView: UIButton = {
+        let btn = UIButton()
+        return btn
+    }()
+    
+    override func presentationTransitionWillBegin() {
         
         guard
             let containerView = containerView
-        else
-        {
-            return CGRect()
+        else {
+            return
         }
         
-        var rect = CGRectInset(containerView.frame, 100, 100)
-        rect.origin.y = 50
+        btnView.frame = containerView.bounds
+        btnView.addTarget(self, action: #selector(self.btnClick), forControlEvents: .TouchUpInside)
+        containerView.addSubview(btnView)
+    }
+    
+    override func presentationTransitionDidEnd(completed: Bool) {
+        // 如果过渡没完成，就移除按钮视图
+        if !completed {
+            btnView.removeFromSuperview()
+        }
+    }
+    
+    override func dismissalTransitionDidEnd(completed: Bool) {
+        // 如果消失没完成，就移除按钮视图
+        if !completed {
+            btnView.removeFromSuperview()
+        }
+    }
+    
+    override func frameOfPresentedViewInContainerView() -> CGRect {
         
-        return rect
+//        guard
+//            let containerView = containerView
+//        else
+//        {
+//            return CGRect()
+//        }
+//        
+//        var rect = CGRectInset(containerView.frame, 100, 100)
+//        rect.origin.y = 50
+//        
+//        return rect
+        return presentFrame
+    }
+    
+    
+    // MARK: - 内部实现方法
+    // 按钮点击监听方法
+    @objc private func btnClick() {
+        presentedViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

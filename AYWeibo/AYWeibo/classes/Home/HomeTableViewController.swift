@@ -9,6 +9,15 @@
 import UIKit
 
 class HomeTableViewController: BaseViewController {
+    
+    /// 导航条标题按钮
+    private lazy var titleButton: UIButton = {
+        let btn = TitleButton()
+        btn.setTitle("首页", forState: .Normal)
+        btn.addTarget(self, action: #selector(self.titleBtnClick(_:)), forControlEvents: .TouchUpInside)
+        
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +31,24 @@ class HomeTableViewController: BaseViewController {
         
         // 2.初始化导航条按钮
         setupNavigationBar()
+        
+        // 3.注册通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.titleChange), name: AYTransitioningManagerPresented, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.titleChange), name: AYTransitioningManagerDismissed, object: nil)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    deinit {
+        // 移除通知
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // MARK: - 内部控制方法
+    
+    // 接受到通知后的实现方法
+    @objc private func titleChange() {
+        // 设置按钮选中状态
+        titleButton.selected = !titleButton.selected
+    }
     
     private func setupNavigationBar() {
         // 1. 添加左右按钮
@@ -41,35 +61,23 @@ class HomeTableViewController: BaseViewController {
                                                             action: #selector(self.rightBarButtonItemClick))
         
         // 2. 添加标题按钮
-        let titlebtn = TitleButton()
-        
-        titlebtn.setTitle("首页", forState: .Normal)
-        titlebtn.addTarget(self, action: #selector(self.titleBtnClick(_:)), forControlEvents: .TouchUpInside)
-        
-        navigationItem.titleView = titlebtn
+        navigationItem.titleView = titleButton
     }
     
     // 标题按钮监听方法
     @objc private func titleBtnClick(sender: TitleButton){
-        // 1.按钮选中状态
-        sender.selected = !sender.selected
-        
-        // 2.modal控制器
-        // 2.1 获取storyboard
+        // 1.modal控制器
+        // 1.1 获取storyboard
         let sb = UIStoryboard(name: "Popover", bundle: nil)
         
-        // 2.2 获取控制器
+        // 1.2 获取控制器
         guard let presentControl = sb.instantiateInitialViewController() else {
             QL2("获取控制器失败")
             return
         }
         
-        // 设置代理,自定义尺寸
-        presentControl.transitioningDelegate = self
-        presentControl.modalPresentationStyle = .Custom
-        
-        // 2.3 modal控制器
-        presentViewController(presentControl, animated: true, completion: nil)
+        // 1.3 modal控制器
+        self.presentViewController(presentControl, animated: true, completion: nil)
         
     }
     
@@ -82,23 +90,11 @@ class HomeTableViewController: BaseViewController {
     @objc private func rightBarButtonItemClick() {
         QL2("")
     }
+    
+    // MARK: - 外部实现方法
+    func buttomSeleted() {
+        
+    }
 }
 
-// MARK - extention
-extension HomeTableViewController: UIViewControllerTransitioningDelegate {
-    
-    // 自定义modal尺寸
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        
-        return AYPresentationController(presentedViewController: presented, presentingViewController: presenting)
-    }
-    
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        return AYViewControllerAnimatedTransitioning(isPresenting: true)
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AYViewControllerAnimatedTransitioning(isPresenting: false)
-    }
-}
+

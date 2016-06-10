@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Popover View Controller-->
         <scene sceneID="Zer-Sy-Zn6">
             <objects>
-                <viewController id="LAc-BR-y6q" sceneMemberID="viewController">
+                <viewController id="LAc-BR-y6q" customClass="PopoverViewController" customModule="新浪微博" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="twM-NB-b8m"/>
                         <viewControllerLayoutGuide type="bottom" id="pcF-HE-TCc"/>

@@ -8,15 +8,47 @@
 
 import UIKit
 
-class AYViewControllerAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
+// 通知的信息名
+/// 呈现
+let AYTransitioningManagerPresented = "AYTransitioningManagerPresented"
+/// 消失
+let AYTransitioningManagerDismissed = "AYTransitioningManagerDismissed"
+
+class AYTransitioningManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
+    private let duration: NSTimeInterval = 0.5 // 动画执行时间
+    private var isPresenting: Bool = false // 标记当前是否呈现
     
-    private let isPresenting: Bool
-    private let duration: NSTimeInterval = 0.5
+    var presentFrame = CGRectZero
+
     
-    init(isPresenting: Bool) {
-        self.isPresenting = isPresenting
-        super.init()
+    // MARK: - UIViewControllerTransitioningDelegate
+
+    // 该方法返回一个呈现过渡对象
+    // 可以在该对象中控制弹出的尺寸等
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        let pc = AYPresentationController(presentedViewController: presented, presentingViewController: presenting)
+        pc.presentFrame = presentFrame
+        
+        return pc
     }
+    
+
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresenting = true
+        NSNotificationCenter.defaultCenter().postNotificationName(AYTransitioningManagerPresented, object: self)
+       
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresenting = false
+        NSNotificationCenter.defaultCenter().postNotificationName(AYTransitioningManagerDismissed, object: self)
+        
+        return self
+    }
+
+    
+    // MARK: - UIViewControllerAnimatedTransitioning
     
     // 过渡动画时间
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
@@ -75,10 +107,11 @@ class AYViewControllerAnimatedTransitioning: NSObject, UIViewControllerAnimatedT
             return
         }
         
-        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .AllowUserInteraction, animations: { 
-            presentedView.transform = CGAffineTransformMakeScale(1.0, 0)
+        UIView.animateWithDuration(duration, animations: {
+            // 突然消失的原因：因为CGFloat不准确，导致无法执行动画，遇到这样的问题只要将CGFloat的值设置为一个很小的值即可
+            presentedView.transform = CGAffineTransformMakeScale(1.0, 0.00001)
         }) { (complete: Bool) in
-                transitionContext.completeTransition(complete)
+            transitionContext.completeTransition(complete)
         }
     }
 }

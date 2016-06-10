@@ -87,7 +87,7 @@ class MainViewController: UITabBarController {
         // 通过key获取到命名空间，如果我们key写错或者没有对应的值，那么就取不到值，所以返回值可能有值也可能没值。
         // 所以我们用as？进行转换，通过guard进行解包。
         guard let name = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as? String else {
-            print("获取命名空间失败")
+            QL2("获取命名空间失败")
             return
         }
         
@@ -97,7 +97,7 @@ class MainViewController: UITabBarController {
         
         // 3.确定类的真实类型，只有确定类的真实类型，才能创建类对象
         guard let cls = anyCls as? UITableViewController.Type else {
-            print("cls不能当做UITableViewController")
+            QL2("cls不能当做UITableViewController")
             return
         }
         
