@@ -24,6 +24,14 @@ class QRCordViewController: UIViewController {
 
         return tBar
     }()
+    
+    // 扫描视图
+    private lazy var scanView: AYScanView = {
+        let rect = AYRectCenterWihtSize(300, 300, controller: self)
+        let sv = AYScanView(frame: rect)
+        
+        return sv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +41,16 @@ class QRCordViewController: UIViewController {
         setupNavigationBar()
         
         // 2.添加标签栏
+        tabBar.delegate = self
         view.addSubview(tabBar)
+        
+        // 3.添加扫描视图
+        scanView.clipsToBounds = true
+        view.addSubview(scanView)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        scanView.animateWithScan()
     }
     
     // MARK: - 内部方法
@@ -58,9 +75,26 @@ class QRCordViewController: UIViewController {
     @objc private func rightBarBtnClick() {
         QL2("")
     }
-    
 }
 
-// 定义扫描码标签栏按钮Tag
+// MARK: - UITabBarDelegate
+extension QRCordViewController: UITabBarDelegate {
+    // 标签栏item按钮监听
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        
+        // 根据当前选中的按钮重新设置二维码容器的高度
+        scanView.frame = (item.tag == qrCodeItemTag) ? AYRectCenterWihtSize(300, 300, controller: self) : AYRectCenterWihtSize(300, 150, controller: self)
+        
+        view.layoutIfNeeded()
+
+        // 移除动画
+        scanView.layer.removeAllAnimations()
+        
+        // 重新开始动画
+        scanView.animateWithScan()
+    }
+}
+
+// MARK: - 定义扫描码标签栏按钮Tag
 private let qrCodeItemTag: Int = 100001
 private let barCodeItemTag: Int = 100002

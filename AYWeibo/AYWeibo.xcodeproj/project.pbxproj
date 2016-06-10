@@ -31,6 +31,8 @@
 		DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291071D0A183A003C31AA /* PopoverViewController.swift */; };
 		DDD2910B1D0ADF7B003C31AA /* QRCordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2910A1D0ADF7B003C31AA /* QRCordViewController.swift */; };
 		DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */; };
+		DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291101D0B122C003C31AA /* AYScanView.swift */; };
+		DDD291151D0B44D9003C31AA /* AYMacroMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		DDD291071D0A183A003C31AA /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		DDD2910A1D0ADF7B003C31AA /* QRCordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCordViewController.swift; sourceTree = "<group>"; };
 		DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarItemExtension.swift; sourceTree = "<group>"; };
+		DDD291101D0B122C003C31AA /* AYScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYScanView.swift; sourceTree = "<group>"; };
+		DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYMacroMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 				DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */,
 				DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */,
 				DDD290BE1D05C28E003C31AA /* TitleButton.swift */,
+				DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				DDD2910A1D0ADF7B003C31AA /* QRCordViewController.swift */,
+				DDD291101D0B122C003C31AA /* AYScanView.swift */,
 			);
 			name = QRCord;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				DD677FD11CED6626004F0A4C /* ProfileTableViewController.swift in Sources */,
 				DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */,
 				DDD291061D098FCE003C31AA /* AYTransitioningManager.swift in Sources */,
+				DDD291151D0B44D9003C31AA /* AYMacroMethod.swift in Sources */,
 				DD699C951CEBADEE00E4704D /* AppDelegate.swift in Sources */,
 				DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */,
 				DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */,
@@ -413,6 +420,7 @@
 				DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */,
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,
 				DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */,
+				DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */,
 				DDD2910B1D0ADF7B003C31AA /* QRCordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

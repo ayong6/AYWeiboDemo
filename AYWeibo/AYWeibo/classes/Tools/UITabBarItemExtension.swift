@@ -12,13 +12,10 @@ class UITabBarItemExtension: UITabBarItem {
     
     init(title: String, imageName: String, tag: Int) {
         super.init()
-   
         self.title = title
         self.image = UIImage(named: imageName)
         self.selectedImage = UIImage(named: imageName + "_highlighted")
         self.tag = tag
-
-    
     }
     
     required init?(coder aDecoder: NSCoder) {
