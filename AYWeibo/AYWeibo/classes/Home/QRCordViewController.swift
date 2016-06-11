@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class QRCordViewController: UIViewController {
     
@@ -26,17 +27,26 @@ class QRCordViewController: UIViewController {
     }()
     
     // 扫描视图
-    private lazy var scanView: AYScanView = {
-        let rect = AYRectCenterWihtSize(300, 300, controller: self)
-        let sv = AYScanView(frame: rect)
-        
-        return sv
+    private lazy var scanView: AYScanView = AYScanView(frame: AYRectCenterWihtSize(300, 300, controller: self))
+
+
+    // 输入对象
+    private lazy var input: AVCaptureDeviceInput? = {
+        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        return try? AVCaptureDeviceInput(device: device)
     }()
+    
+    // 输出对象
+    private lazy var output: AVCaptureMetadataOutput = AVCaptureMetadataOutput()
+    
+    // 会话
+    private lazy var session: AVCaptureSession = AVCaptureSession()
+    
+    // 预览图层
+    private lazy var presentLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.redColor()
         // 1.配置导航条
         setupNavigationBar()
         
@@ -46,7 +56,11 @@ class QRCordViewController: UIViewController {
         
         // 3.添加扫描视图
         scanView.clipsToBounds = true
+        scanView.backgroundColor = UIColor.clearColor()
         view.addSubview(scanView)
+        
+        // 4.开始扫描二维码
+        scanQRCode()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -54,6 +68,33 @@ class QRCordViewController: UIViewController {
     }
     
     // MARK: - 内部方法
+    
+    private func scanQRCode() {
+        // 1.判断输入和输出是否能添加到会话中
+        guard
+            session.canAddInput(input) &&
+            session.canAddOutput(output)
+        else {
+                return
+        }
+        
+        // 2.添加输入和输出到会话中
+        session.addInput(input)
+        session.addOutput(output)
+        
+        // 3.设置输出能够解析的数据类型
+        output.metadataObjectTypes = output.availableMetadataObjectTypes
+        
+        // 4.设置监听输出解析到的数据
+        output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        
+        // 5.添加预览图层
+        presentLayer.frame = view.bounds
+        view.layer.insertSublayer(presentLayer, atIndex: 0)
+        
+        // 6.开始扫描
+        session.startRunning()
+    }
     
     private func setupNavigationBar() {
         navigationItem.title = "扫一扫"
@@ -77,7 +118,14 @@ class QRCordViewController: UIViewController {
     }
 }
 
-// MARK: - UITabBarDelegate
+// MARK: - Delegate
+extension QRCordViewController: AVCaptureMetadataOutputObjectsDelegate {
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        
+        QL2(metadataObjects.last?.stringValue)
+    }
+}
+
 extension QRCordViewController: UITabBarDelegate {
     // 标签栏item按钮监听
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
