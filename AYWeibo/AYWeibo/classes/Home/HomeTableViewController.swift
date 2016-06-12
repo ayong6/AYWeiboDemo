@@ -65,6 +65,7 @@ class HomeTableViewController: BaseViewController {
     
     // 标题按钮监听方法
     @objc private func titleBtnClick(sender: TitleButton){
+        QL2("")
         // 1.modal控制器
         // 1.1 获取storyboard
         let sb = UIStoryboard(name: "Popover", bundle: nil)
@@ -87,6 +88,7 @@ class HomeTableViewController: BaseViewController {
     
     /// 右侧导航条按钮监听方法
     @objc private func rightBarButtonItemClick() {
+        QL2("")
         let nav = UINavigationController(rootViewController: QRCordViewController())
         nav.navigationBar.barTintColor = UIColor.blackColor()
         nav.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]

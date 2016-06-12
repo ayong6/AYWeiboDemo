@@ -13,7 +13,7 @@ class AYScanView: UIView {
     private var borderImgView: UIImageView!
     private var scaningImgView: UIImageView!
     private var topConstraintScan: NSLayoutConstraint! // 扫描视图的顶部约束
-    private var heightConstraintBorder: NSLayoutConstraint! // 边框视图的高度约束
+    private var heightConstraintBorder: NSLayoutConstraint! // 边框图片的高度约束
     private var heightConstraintScan: NSLayoutConstraint! // 扫描视图的高度约束
     
     override init(frame: CGRect) {
@@ -37,10 +37,12 @@ class AYScanView: UIView {
     // MARK: - 内部实现方法
     
     private func setupSubViews() {
+        // 1.添加边框图片
         borderImgView = UIImageView()
         borderImgView.image = UIImage(named: "qrcode_border")
         addSubview(borderImgView)
         
+        // 2.添加扫描视图
         scaningImgView = UIImageView()
         scaningImgView.image = UIImage(named: "qrcode_scanline_qrcode")
         addSubview(scaningImgView)
@@ -50,6 +52,7 @@ class AYScanView: UIView {
         borderImgView.translatesAutoresizingMaskIntoConstraints = false
         scaningImgView.translatesAutoresizingMaskIntoConstraints = false
         
+        // 添加边框图片约束
         let widthConstraintBorder = NSLayoutConstraint(item: borderImgView,
                                                        attribute: .Width,
                                                        relatedBy: .Equal,
@@ -85,6 +88,7 @@ class AYScanView: UIView {
         borderImgView.addConstraints([widthConstraintBorder, heightConstraintBorder])
         addConstraints([topConstraintBorder, leadingConstraintBorder])
         
+        // 添加扫描视图约束
         let widthConstraintScan = NSLayoutConstraint(item: scaningImgView,
                                                        attribute: .Width,
                                                        relatedBy: .Equal,
@@ -119,6 +123,7 @@ class AYScanView: UIView {
         
         scaningImgView.addConstraints([widthConstraintScan, heightConstraintScan])
         self.addConstraints([topConstraintScan, leadingConstraintScan])
+
     }
     
     // MARK: - 外部实现方法

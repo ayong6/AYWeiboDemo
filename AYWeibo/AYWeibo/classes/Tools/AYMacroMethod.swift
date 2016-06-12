@@ -12,7 +12,7 @@ import UIKit
 public func AYRectCenterWihtSize(width: CGFloat, _ height: CGFloat, controller: UIViewController) -> CGRect {
 
     let x: CGFloat = (controller.view.frame.width - width) / 2
-    let y: CGFloat = (controller.view.frame.height - height) / 2
+    let y: CGFloat = (controller.view.frame.height - height) / 2 - 60
     
     return CGRectMake(x, y, width, height)
 }

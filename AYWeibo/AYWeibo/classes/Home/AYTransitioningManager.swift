@@ -14,7 +14,6 @@ class AYTransitioningManager: NSObject, UIViewControllerAnimatedTransitioning, U
     
     var presentFrame = CGRectZero
 
-    
     // MARK: - UIViewControllerTransitioningDelegate
 
     // 该方法返回一个呈现过渡对象

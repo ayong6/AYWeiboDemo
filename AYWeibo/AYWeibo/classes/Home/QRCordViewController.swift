@@ -44,6 +44,9 @@ class QRCordViewController: UIViewController {
     
     // 预览图层
     private lazy var presentLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
+    
+    private var titleLabel: UILabel!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +62,10 @@ class QRCordViewController: UIViewController {
         scanView.backgroundColor = UIColor.clearColor()
         view.addSubview(scanView)
         
-        // 4.开始扫描二维码
+        // 4.添加扫描结果标题
+        setupTitleLabel()
+        
+        // 5.开始扫描二维码
         scanQRCode()
     }
     
@@ -96,6 +102,34 @@ class QRCordViewController: UIViewController {
         session.startRunning()
     }
     
+    private func setupTitleLabel() {
+        // 1.创建扫描内容显示标题
+        titleLabel = UILabel()
+        titleLabel.numberOfLines = 0
+        titleLabel.text = "将二维码/条形码放入框内，即可自动扫描"
+        titleLabel.font = UIFont.systemFontOfSize(14)
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.backgroundColor = UIColor.blackColor()
+        titleLabel.alpha = 0.3
+        view.addSubview(titleLabel)
+        
+        // 2.添加约束
+        setupConstraintTitle()
+        
+    }
+    
+    private func setupConstraintTitle() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leadingConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: scanView, attribute: .Leading, multiplier: 1.0, constant: 0.0)
+        
+        let trailingConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: scanView, attribute: .Trailing, multiplier: 1.0, constant: 0.0)
+        
+        let topConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Top, relatedBy: .Equal, toItem: scanView, attribute: .Bottom, multiplier: 1.0, constant: 20)
+        
+        view.addConstraints([leadingConstraint, trailingConstraint, topConstraint])
+    }
+    
     private func setupNavigationBar() {
         navigationItem.title = "扫一扫"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭",
@@ -110,6 +144,7 @@ class QRCordViewController: UIViewController {
     
     // 导航条按钮监听方法
     @objc private func leftBarBtnClick() {
+        QL2("")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -123,12 +158,14 @@ extension QRCordViewController: AVCaptureMetadataOutputObjectsDelegate {
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
         QL2(metadataObjects.last?.stringValue)
+        titleLabel.text = metadataObjects.last?.stringValue
     }
 }
 
 extension QRCordViewController: UITabBarDelegate {
     // 标签栏item按钮监听
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        QL2("")
         
         // 根据当前选中的按钮重新设置二维码容器的高度
         scanView.frame = (item.tag == qrCodeItemTag) ? AYRectCenterWihtSize(300, 300, controller: self) : AYRectCenterWihtSize(300, 150, controller: self)
