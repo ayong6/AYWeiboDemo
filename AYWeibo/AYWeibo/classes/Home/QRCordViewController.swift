@@ -12,12 +12,7 @@ import AVFoundation
 class QRCordViewController: UIViewController {
     
     private lazy var tabBar: UITabBar = {
-        let x: CGFloat = 0
-        let y: CGFloat = self.view.frame.height - 49
-        let w: CGFloat = self.view.frame.width
-        let h: CGFloat = 49
-        let tBar = UITabBar(frame: CGRect(x: x, y: y, width: w, height: h))
-        
+        let tBar = UITabBar()
         tBar.barTintColor = UIColor.blackColor()
         tBar.items = [UITabBarItemExtension(title: "二维码", imageName: "qrcode_tabbar_icon_qrcode", tag: qrCodeItemTag),
                       UITabBarItemExtension(title: "条形码", imageName: "qrcode_tabbar_icon_barcode", tag: barCodeItemTag)]
@@ -45,27 +40,23 @@ class QRCordViewController: UIViewController {
     // 预览图层
     private lazy var presentLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
     
+    // 显示捕获结果
     private var titleLabel: UILabel!
+    
+    // 容器图层
+    private lazy var containerLayer: CALayer = CALayer()
+    
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 1.配置导航条
-        setupNavigationBar()
+        // 1.配置子视图
+        setupSubViews()
         
-        // 2.添加标签栏
-        tabBar.delegate = self
-        view.addSubview(tabBar)
-        
-        // 3.添加扫描视图
-        scanView.clipsToBounds = true
-        scanView.backgroundColor = UIColor.clearColor()
-        view.addSubview(scanView)
-        
-        // 4.添加扫描结果标题
-        setupTitleLabel()
-        
-        // 5.开始扫描二维码
+        // 2.添加约束
+        setupConstraints()
+
+        // 2.开始扫描二维码
         scanQRCode()
     }
     
@@ -102,8 +93,20 @@ class QRCordViewController: UIViewController {
         session.startRunning()
     }
     
-    private func setupTitleLabel() {
-        // 1.创建扫描内容显示标题
+    private func setupSubViews() {
+        // 1.配置导航条
+        setupNavigationBar()
+        
+        // 2.添加标签栏
+        tabBar.delegate = self
+        view.addSubview(tabBar)
+        
+        // 3.添加扫描视图
+        scanView.clipsToBounds = true
+        scanView.backgroundColor = UIColor.clearColor()
+        view.addSubview(scanView)
+        
+        // 4.创建扫描内容显示标题
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.text = "将二维码/条形码放入框内，即可自动扫描"
@@ -113,21 +116,72 @@ class QRCordViewController: UIViewController {
         titleLabel.alpha = 0.3
         view.addSubview(titleLabel)
         
-        // 2.添加约束
-        setupConstraintTitle()
-        
+        // 5.创建容器图层
+        containerLayer.frame = view.bounds
+        view.layer.addSublayer(containerLayer)
     }
     
-    private func setupConstraintTitle() {
+    private func setupConstraints() {
+        tabBar.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let leadingConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: scanView, attribute: .Leading, multiplier: 1.0, constant: 0.0)
+        // 1.标签栏约束
+        tabBar.addConstraint(NSLayoutConstraint(item: tabBar,
+                                                attribute: .Height,
+                                                relatedBy: .Equal,
+                                                toItem: nil,
+                                                attribute: .NotAnAttribute,
+                                                multiplier: 0.0,
+                                                constant: 49))
         
-        let trailingConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Trailing, relatedBy: .Equal, toItem: scanView, attribute: .Trailing, multiplier: 1.0, constant: 0.0)
+        view.addConstraint(NSLayoutConstraint(item: tabBar,
+                                              attribute: .Leading,
+                                              relatedBy: .Equal,
+                                              toItem: view,
+                                              attribute: .Leading,
+                                              multiplier: 1.0,
+                                              constant: 0.0))
         
-        let topConstraint = NSLayoutConstraint(item: titleLabel, attribute: .Top, relatedBy: .Equal, toItem: scanView, attribute: .Bottom, multiplier: 1.0, constant: 20)
+        view.addConstraint(NSLayoutConstraint(item: tabBar,
+                                              attribute: .Trailing,
+                                              relatedBy: .Equal,
+                                              toItem: view,
+                                              attribute: .Trailing,
+                                              multiplier: 1.0,
+                                              constant: 0.0))
         
-        view.addConstraints([leadingConstraint, trailingConstraint, topConstraint])
+        view.addConstraint(NSLayoutConstraint(item: tabBar,
+                                              attribute: .Bottom,
+                                              relatedBy: .Equal,
+                                              toItem: view,
+                                              attribute: .Bottom,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        
+        // 2.显示扫描结果标题约束
+        view.addConstraint(NSLayoutConstraint(item: titleLabel,
+                                              attribute: .Leading,
+                                              relatedBy: .Equal,
+                                              toItem: scanView,
+                                              attribute: .Leading,
+                                              multiplier: 1.0,
+                                              constant: 0.0))
+        
+        view.addConstraint(NSLayoutConstraint(item: titleLabel,
+                                              attribute: .Trailing,
+                                              relatedBy: .Equal,
+                                              toItem: scanView,
+                                              attribute: .Trailing,
+                                              multiplier: 1.0,
+                                              constant: 0.0))
+ 
+        view.addConstraint(NSLayoutConstraint(item: titleLabel,
+                                              attribute: .Top,
+                                              relatedBy: .Equal,
+                                              toItem: scanView,
+                                              attribute: .Bottom,
+                                              multiplier: 1.0,
+                                              constant: 20))
     }
     
     private func setupNavigationBar() {
@@ -136,6 +190,7 @@ class QRCordViewController: UIViewController {
                                                            style: .Plain,
                                                            target: self,
                                                            action: #selector(self.leftBarBtnClick))
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "相册",
                                                             style: .Plain,
                                                             target: self,
@@ -154,11 +209,77 @@ class QRCordViewController: UIViewController {
 }
 
 // MARK: - Delegate
+
 extension QRCordViewController: AVCaptureMetadataOutputObjectsDelegate {
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
-        QL2(metadataObjects.last?.stringValue)
+        // 0.清空上次的描边图层
+        clearSubLayers()
+        
+        // 1.显示扫描结果
         titleLabel.text = metadataObjects.last?.stringValue
+        
+        // 2.拿到扫描到的数据
+        guard
+            let metaData = metadataObjects.last as? AVMetadataObject
+        else {
+            QL2("获取扫描数据失败")
+            return
+        }
+        
+        // 3.通过预览图层将数据转换成系统识别的数据类型
+        if let objc = presentLayer.transformedMetadataObjectForMetadataObject(metaData) as? AVMetadataMachineReadableCodeObject {
+            // 4.对扫描到的二维码进行描边
+            drawLines(objc)
+        }
+    }
+    
+    private func drawLines(objc: AVMetadataMachineReadableCodeObject) {
+        // 1.创建图层，用于保存绘制的矩形
+        let layer = CAShapeLayer()
+        layer.lineWidth = 2
+        layer.strokeColor = UIColor.redColor().CGColor
+        layer.fillColor = UIColor.clearColor().CGColor
+        
+        // 2. 创建贝塞尔路径，绘制图形
+        let path = UIBezierPath()
+        
+        // 3.获取捕获数据中的矩形四个边角point
+        let corners = objc.corners.map { (point) -> CGPoint in
+            let dict = point as! NSDictionary
+            let x = dict["X"] as! CGFloat
+            let y = dict["Y"] as! CGFloat
+            
+            return CGPoint(x: x, y: y)
+        }
+        
+        // 4.绘制图形
+        for i in 0..<corners.count {
+            if i == 0 {
+                path.moveToPoint(corners[i])
+            }
+            path.addLineToPoint(corners[i])
+        }
+        
+        // 5.关闭路径
+        path.closePath()
+        
+        layer.path = path.CGPath
+        
+        containerLayer.addSublayer(layer)
+    }
+    
+    func clearSubLayers() {
+        guard
+            let subLayers = containerLayer.sublayers
+        else {
+            QL2("没有图层")
+            return
+        }
+        
+        for layer in subLayers {
+            layer.removeFromSuperlayer()
+        }
     }
 }
 
