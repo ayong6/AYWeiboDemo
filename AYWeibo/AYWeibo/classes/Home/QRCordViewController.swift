@@ -24,7 +24,6 @@ class QRCordViewController: UIViewController {
     // 扫描视图
     private lazy var scanView: AYScanView = AYScanView(frame: AYRectCenterWihtSize(300, 300, controller: self))
 
-
     // 输入对象
     private lazy var input: AVCaptureDeviceInput? = {
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -224,11 +223,57 @@ class QRCordViewController: UIViewController {
     
     @objc private func rightBarBtnClick() {
         QL2("")
+        // 打开系统相册
+        // 1.判断是否能够打开相册
+        if !UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            return
+        }
+        
+        // 2.创建相册控制器
+        let imageController = UIImagePickerController()
+        imageController.delegate = self
+        
+        // 3.弹出相册控制器
+        presentViewController(imageController, animated: true, completion: nil)
     }
 }
 
 // MARK: - Delegate
 
+// 相册控制器代理
+extension QRCordViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        QL2("")
+        
+        // 1.取出选中的图片
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            QL2("取出选中图片失败")
+            return
+        }
+        
+        // 2.从选中的图片中读取二维码数据
+        // 2.1 创建一个检测器
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyLow])
+        
+        // 2.2 利用检测器检测数据
+        guard let ciImage = CIImage(image: image) else {
+            QL2("创建ciImage失败")
+            return
+        }
+        
+        let results = detector.featuresInImage(ciImage)
+        
+        // 2.3 取出检测的数据
+        for result in results {
+            QL2((result as! CIQRCodeFeature).messageString)
+        }
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+// 扫描输出设备代理
 extension QRCordViewController: AVCaptureMetadataOutputObjectsDelegate {
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
@@ -302,6 +347,8 @@ extension QRCordViewController: AVCaptureMetadataOutputObjectsDelegate {
     }
 }
 
+
+// 标签栏代理
 extension QRCordViewController: UITabBarDelegate {
     // 标签栏item按钮监听
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
