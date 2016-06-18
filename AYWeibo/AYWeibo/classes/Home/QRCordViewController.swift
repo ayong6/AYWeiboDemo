@@ -32,7 +32,26 @@ class QRCordViewController: UIViewController {
     }()
     
     // 输出对象
-    private lazy var output: AVCaptureMetadataOutput = AVCaptureMetadataOutput()
+    private lazy var output: AVCaptureMetadataOutput = {
+        let out = AVCaptureMetadataOutput()
+        // 设置扫描区域：输出对象解析数据时感兴趣的范围
+        // 默认值是CGRectMake(0, 0, 1, 1)，通过对这个值的观察，我们发现传入的是比例
+        // 注意：比例是以横屏的左上角作为参照，而不是竖屏
+        // 1.获取屏幕和容器的frame
+        let viewRect = self.view.frame
+        let containerRect = self.scanView.frame
+        
+        // 2.计算比例
+        let x = containerRect.origin.y / viewRect.height
+        let y = containerRect.origin.x / viewRect.width
+        let width = containerRect.height / viewRect.height
+        let height = containerRect.width / viewRect.width
+        
+        // 3.设置感兴趣范围
+        out.rectOfInterest = CGRectMake(x, y, width, height)
+        
+        return out
+    }()
     
     // 会话
     private lazy var session: AVCaptureSession = AVCaptureSession()
