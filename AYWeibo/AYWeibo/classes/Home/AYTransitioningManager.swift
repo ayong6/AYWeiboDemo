@@ -9,7 +9,7 @@
 import UIKit
 
 class AYTransitioningManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
-    private let duration: NSTimeInterval = 0.5 // 动画执行时间
+    private let duration: NSTimeInterval = 0.2 // 动画执行时间
     private var isPresenting: Bool = false // 标记当前是否呈现
     
     var presentFrame = CGRectZero

@@ -30,6 +30,14 @@ class QRCordViewController: UIViewController {
         return try? AVCaptureDeviceInput(device: device)
     }()
     
+    // 我的二维码按钮
+    private lazy var myCodeButton: UIButton = {
+       let btn = UIButton()
+        btn.setTitle("我的二维码", forState: .Normal)
+        btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        return btn
+    }()
+    
     // 输出对象
     private lazy var output: AVCaptureMetadataOutput = {
         let out = AVCaptureMetadataOutput()
@@ -137,11 +145,16 @@ class QRCordViewController: UIViewController {
         // 5.创建容器图层
         containerLayer.frame = view.bounds
         view.layer.addSublayer(containerLayer)
+        
+        // 6.我的二维码
+        myCodeButton.addTarget(self, action: #selector(self.myCodeButtonClick), forControlEvents: .TouchUpInside)
+        view.addSubview(myCodeButton)
     }
     
     private func setupConstraints() {
         tabBar.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        myCodeButton.translatesAutoresizingMaskIntoConstraints = false
         
         // 1.标签栏约束
         tabBar.addConstraint(NSLayoutConstraint(item: tabBar,
@@ -200,6 +213,11 @@ class QRCordViewController: UIViewController {
                                               attribute: .Bottom,
                                               multiplier: 1.0,
                                               constant: 20))
+        
+        // 3.我的二维码按钮约束
+//        myCodeButton.addConstraint(NSLayoutConstraint(item: myCodeButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: 100.0))
+        view.addConstraint(NSLayoutConstraint(item: myCodeButton, attribute: .Top, relatedBy: .Equal, toItem: titleLabel, attribute: .Bottom, multiplier: 1.0, constant: 30.0))
+        view.addConstraint(NSLayoutConstraint(item: myCodeButton, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
     }
     
     private func setupNavigationBar() {
@@ -213,6 +231,13 @@ class QRCordViewController: UIViewController {
                                                             style: .Plain,
                                                             target: self,
                                                             action: #selector(self.rightBarBtnClick))
+    }
+    
+    // 我的二维码按钮监听
+    @objc private func myCodeButtonClick() {
+        QL2("")
+//        navigationController?.pushViewController(QRCodeCreateViewController(), animated: true)
+        showViewController(QRCodeCreateViewController(), sender: nil)
     }
     
     // 导航条按钮监听方法
@@ -240,7 +265,7 @@ class QRCordViewController: UIViewController {
 
 // MARK: - Delegate
 
-// 相册控制器代理
+// MARK: 相册控制器代理
 extension QRCordViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -273,7 +298,7 @@ extension QRCordViewController: UIImagePickerControllerDelegate, UINavigationCon
     }
 }
 
-// 扫描输出设备代理
+// MARK:  扫描输出设备代理
 extension QRCordViewController: AVCaptureMetadataOutputObjectsDelegate {
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
@@ -348,7 +373,7 @@ extension QRCordViewController: AVCaptureMetadataOutputObjectsDelegate {
 }
 
 
-// 标签栏代理
+// MARK:  标签栏代理
 extension QRCordViewController: UITabBarDelegate {
     // 标签栏item按钮监听
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {

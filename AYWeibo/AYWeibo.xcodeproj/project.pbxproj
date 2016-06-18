@@ -33,6 +33,7 @@
 		DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */; };
 		DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291101D0B122C003C31AA /* AYScanView.swift */; };
 		DDD291151D0B44D9003C31AA /* AYMacroMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */; };
+		DDD2918D1D154F82003C31AA /* QRCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2918C1D154F82003C31AA /* QRCodeCreateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarItemExtension.swift; sourceTree = "<group>"; };
 		DDD291101D0B122C003C31AA /* AYScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYScanView.swift; sourceTree = "<group>"; };
 		DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYMacroMethod.swift; sourceTree = "<group>"; };
+		DDD2918C1D154F82003C31AA /* QRCodeCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCreateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				DDD2910A1D0ADF7B003C31AA /* QRCordViewController.swift */,
+				DDD2918C1D154F82003C31AA /* QRCodeCreateViewController.swift */,
 				DDD291101D0B122C003C31AA /* AYScanView.swift */,
 			);
 			name = QRCord;
@@ -422,6 +425,7 @@
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,
 				DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */,
 				DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */,
+				DDD2918D1D154F82003C31AA /* QRCodeCreateViewController.swift in Sources */,
 				DDD2910B1D0ADF7B003C31AA /* QRCordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

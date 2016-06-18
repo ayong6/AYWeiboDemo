@@ -53,6 +53,7 @@ class AYPresentationController: UIPresentationController {
     // MARK: - 内部实现方法
     // 按钮点击监听方法
     @objc private func btnClick() {
+        QL2("")
         presentedViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
