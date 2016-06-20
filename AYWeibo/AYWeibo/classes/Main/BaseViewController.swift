@@ -11,7 +11,7 @@ import UIKit
 class BaseViewController: UITableViewController {
     
     /// 标记用户登录状态 true为登录，false为没有登录
-    var isLogin = true
+    var isLogin = false
     
     /// 访客视图
     var visitorView: VisitorView?
@@ -38,7 +38,8 @@ class BaseViewController: UITableViewController {
     
     // 注册
     @objc private func registerBtnClick(sender: UIButton) {
-       QL2("")
+        QL2("")
+        presentViewController(OAuthViewController(), animated: true, completion: nil)
     }
     
     // 登录

@@ -34,6 +34,7 @@
 		DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291101D0B122C003C31AA /* AYScanView.swift */; };
 		DDD291151D0B44D9003C31AA /* AYMacroMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */; };
 		DDD2918D1D154F82003C31AA /* QRCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2918C1D154F82003C31AA /* QRCodeCreateViewController.swift */; };
+		DDD291901D182D97003C31AA /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2918F1D182D97003C31AA /* OAuthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		DDD291101D0B122C003C31AA /* AYScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYScanView.swift; sourceTree = "<group>"; };
 		DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYMacroMethod.swift; sourceTree = "<group>"; };
 		DDD2918C1D154F82003C31AA /* QRCodeCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCreateViewController.swift; sourceTree = "<group>"; };
+		DDD2918F1D182D97003C31AA /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		DD677FC01CED6038004F0A4C /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				DDD2918E1D182D72003C31AA /* OAuth */,
 				DD677FC41CED6038004F0A4C /* Main */,
 				DD677FC31CED6038004F0A4C /* Home */,
 				DD677FC51CED6038004F0A4C /* Message */,
@@ -273,6 +276,14 @@
 			name = QRCord;
 			sourceTree = "<group>";
 		};
+		DDD2918E1D182D72003C31AA /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				DDD2918F1D182D97003C31AA /* OAuthViewController.swift */,
+			);
+			name = OAuth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -426,6 +437,7 @@
 				DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */,
 				DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */,
 				DDD2918D1D154F82003C31AA /* QRCodeCreateViewController.swift in Sources */,
+				DDD291901D182D97003C31AA /* OAuthViewController.swift in Sources */,
 				DDD2910B1D0ADF7B003C31AA /* QRCordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
