@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
 class OAuthViewController: UIViewController {
 
@@ -60,6 +61,17 @@ class OAuthViewController: UIViewController {
 // MARK - delegate
 
 extension OAuthViewController: UIWebViewDelegate {
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        // 显示提醒
+        SVProgressHUD.showInfoWithStatus("正在加载中...")
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        // 关闭提醒
+        SVProgressHUD.dismiss()
+    }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         

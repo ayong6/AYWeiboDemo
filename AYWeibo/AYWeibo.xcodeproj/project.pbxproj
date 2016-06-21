@@ -17,6 +17,9 @@
 		DD699CAA1CEBADEE00E4704D /* AYWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD699CA91CEBADEE00E4704D /* AYWeiboTests.swift */; };
 		DD699CB51CEBADEE00E4704D /* AYWeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD699CB41CEBADEE00E4704D /* AYWeiboUITests.swift */; };
 		DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD699CC81CEC09B500E4704D /* QorumLogs.swift */; };
+		DD7A62001D198B61009427C1 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7A61F91D198A5B009427C1 /* SVProgressHUD.framework */; };
+		DD7A62141D1992BE009427C1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7A62131D1992BE009427C1 /* WelcomeViewController.swift */; };
+		DD7A62281D199E74009427C1 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7A62251D199E4B009427C1 /* WebImage.framework */; };
 		DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1ADC41D02D1A700AD1966 /* BaseViewController.swift */; };
 		DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1ADC61D02D9D200AD1966 /* VisitorView.swift */; };
 		DDB1ADC91D02D9F300AD1966 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */; };
@@ -56,6 +59,55 @@
 			proxyType = 1;
 			remoteGlobalIDString = DD699C901CEBADEE00E4704D;
 			remoteInfo = AYWeibo;
+		};
+		DD7A61F81D198A5B009427C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD7A61EC1D198A5B009427C1 /* SVProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A9D7DD81AB345980039B273;
+			remoteInfo = "SVProgressHUD-Framework";
+		};
+		DD7A61FA1D198A5B009427C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD7A61EC1D198A5B009427C1 /* SVProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65F021FC15C857EF0030BBEF;
+			remoteInfo = SVProgressHUD;
+		};
+		DD7A621E1D199E4B009427C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = SDWebImage;
+		};
+		DD7A62201D199E4B009427C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 537D95C117ECC1FE0097C263;
+			remoteInfo = "SDWebImage+WebP";
+		};
+		DD7A62221D199E4B009427C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
+			remoteInfo = "SDWebImage+MKAnnotation";
+		};
+		DD7A62241D199E4B009427C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A2CADFF1AB4BB5300B6BC39;
+			remoteInfo = WebImage;
+		};
+		DD7A62261D199E4B009427C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00733A4C1BC487C000A5A117;
+			remoteInfo = "WebImage tvOS";
 		};
 		DDD6F5E81D187103009ED1B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -125,6 +177,10 @@
 		DD699CB41CEBADEE00E4704D /* AYWeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYWeiboUITests.swift; sourceTree = "<group>"; };
 		DD699CB61CEBADEE00E4704D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD699CC81CEC09B500E4704D /* QorumLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QorumLogs.swift; sourceTree = "<group>"; };
+		DD7A61EC1D198A5B009427C1 /* SVProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SVProgressHUD.xcodeproj; path = "SVProgressHUD-master/SVProgressHUD.xcodeproj"; sourceTree = "<group>"; };
+		DD7A620F1D198EF0009427C1 /* AYWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AYWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
+		DD7A62131D1992BE009427C1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = "SDWebImage-master/SDWebImage.xcodeproj"; sourceTree = "<group>"; };
 		DDB1ADC41D02D1A700AD1966 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DDB1ADC61D02D9D200AD1966 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
@@ -155,6 +211,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7A62281D199E74009427C1 /* WebImage.framework in Frameworks */,
+				DD7A62001D198B61009427C1 /* SVProgressHUD.framework in Frameworks */,
 				DDD6F5F61D187155009ED1B0 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +237,7 @@
 		DD677FC01CED6038004F0A4C /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				DD7A62121D19927C009427C1 /* Newfeature */,
 				DDD2918E1D182D72003C31AA /* OAuth */,
 				DD677FC41CED6038004F0A4C /* Main */,
 				DD677FC31CED6038004F0A4C /* Home */,
@@ -267,6 +326,9 @@
 				DD699CB31CEBADEE00E4704D /* AYWeiboUITests */,
 				DD699C921CEBADEE00E4704D /* Products */,
 				DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */,
+				DD7A61EC1D198A5B009427C1 /* SVProgressHUD.xcodeproj */,
+				DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */,
+				DD7A620F1D198EF0009427C1 /* AYWeibo-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -308,6 +370,35 @@
 				DD699CB61CEBADEE00E4704D /* Info.plist */,
 			);
 			path = AYWeiboUITests;
+			sourceTree = "<group>";
+		};
+		DD7A61ED1D198A5B009427C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD7A61F91D198A5B009427C1 /* SVProgressHUD.framework */,
+				DD7A61FB1D198A5B009427C1 /* libSVProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD7A62121D19927C009427C1 /* Newfeature */ = {
+			isa = PBXGroup;
+			children = (
+				DD7A62131D1992BE009427C1 /* WelcomeViewController.swift */,
+			);
+			path = Newfeature;
+			sourceTree = "<group>";
+		};
+		DD7A62161D199E4B009427C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD7A621F1D199E4B009427C1 /* libSDWebImage.a */,
+				DD7A62211D199E4B009427C1 /* libSDWebImage+WebP.a */,
+				DD7A62231D199E4B009427C1 /* libSDWebImage+MKAnnotation.a */,
+				DD7A62251D199E4B009427C1 /* WebImage.framework */,
+				DD7A62271D199E4B009427C1 /* WebImage.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		DDBDE9F31CFD813A00048845 /* Resource */ = {
@@ -459,6 +550,14 @@
 					ProductGroup = DDD6F5DF1D187103009ED1B0 /* Products */;
 					ProjectRef = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = DD7A62161D199E4B009427C1 /* Products */;
+					ProjectRef = DD7A62151D199E4B009427C1 /* SDWebImage.xcodeproj */;
+				},
+				{
+					ProductGroup = DD7A61ED1D198A5B009427C1 /* Products */;
+					ProjectRef = DD7A61EC1D198A5B009427C1 /* SVProgressHUD.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -470,6 +569,55 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		DD7A61F91D198A5B009427C1 /* SVProgressHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SVProgressHUD.framework;
+			remoteRef = DD7A61F81D198A5B009427C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD7A61FB1D198A5B009427C1 /* libSVProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSVProgressHUD.a;
+			remoteRef = DD7A61FA1D198A5B009427C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD7A621F1D199E4B009427C1 /* libSDWebImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImage.a;
+			remoteRef = DD7A621E1D199E4B009427C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD7A62211D199E4B009427C1 /* libSDWebImage+WebP.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage+WebP.a";
+			remoteRef = DD7A62201D199E4B009427C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD7A62231D199E4B009427C1 /* libSDWebImage+MKAnnotation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage+MKAnnotation.a";
+			remoteRef = DD7A62221D199E4B009427C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD7A62251D199E4B009427C1 /* WebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WebImage.framework;
+			remoteRef = DD7A62241D199E4B009427C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD7A62271D199E4B009427C1 /* WebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WebImage.framework;
+			remoteRef = DD7A62261D199E4B009427C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		DDD6F5E91D187103009ED1B0 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -554,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7A62141D1992BE009427C1 /* WelcomeViewController.swift in Sources */,
 				DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */,
 				DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */,
 				DDD6F6041D193C55009ED1B0 /* Common.swift in Sources */,
@@ -703,11 +852,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AYWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ayong.AYWeibo;
 				PRODUCT_NAME = "新浪微博";
+				SWIFT_OBJC_BRIDGING_HEADER = "AYWeibo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -716,11 +868,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AYWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ayong.AYWeibo;
 				PRODUCT_NAME = "新浪微博";
+				SWIFT_OBJC_BRIDGING_HEADER = "AYWeibo-Bridging-Header.h";
 			};
 			name = Release;
 		};
