@@ -74,6 +74,14 @@ class WelcomeViewController: UIViewController {
         
         iconImageView.layer.cornerRadius = 45.0
         iconImageView.clipsToBounds = true
+        
+        assert(UserAccount.loadUserAccount() != nil, "必须授权之后才能显示欢迎界面")
+        
+        if let url = NSURL(string: UserAccount.loadUserAccount()!.avatar_large!) {
+            // 设置头像
+            iconImageView.sd_setImageWithURL(url)
+        }
+        
         view.addSubview(iconImageView)
         
         view.addSubview(titleLabel)
