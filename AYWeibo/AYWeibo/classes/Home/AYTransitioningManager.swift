@@ -109,9 +109,3 @@ class AYTransitioningManager: NSObject, UIViewControllerAnimatedTransitioning, U
     }
 }
 
-// 定义通知的信息名
-/// 呈现
-let AYTransitioningManagerPresented = "AYTransitioningManagerPresented"
-/// 消失
-let AYTransitioningManagerDismissed = "AYTransitioningManagerDismissed"
-

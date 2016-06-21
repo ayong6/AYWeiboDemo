@@ -391,7 +391,3 @@ extension QRCordViewController: UITabBarDelegate {
         scanView.animateWithScan()
     }
 }
-
-// MARK: - 定义扫描码标签栏按钮Tag
-private let qrCodeItemTag: Int = 100001
-private let barCodeItemTag: Int = 100002

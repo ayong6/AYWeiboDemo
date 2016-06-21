@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class OAuthViewController: UIViewController {
 
@@ -30,7 +31,7 @@ class OAuthViewController: UIViewController {
     private func loadRequest() {
         
         // 1.创建URL
-        guard let url = NSURL(string: "https://api.weibo.com/oauth2/authorize?client_id=1624414075&redirect_uri=http://www.ayong.org") else {
+        guard let url = NSURL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(WB_App_Key)&redirect_uri=\(WB_Redirect_uri)") else {
             return
         }
         
@@ -68,7 +69,7 @@ extension OAuthViewController: UIWebViewDelegate {
         }
         
         // 1.判断当前是否授权回调页面
-        guard urlStr.hasPrefix("https://www.ayong.org/") else {
+        guard urlStr.hasPrefix(WB_Redirect_uri) else {
             QL2("不是授权回调页面")
             return true
         }
@@ -83,8 +84,41 @@ extension OAuthViewController: UIWebViewDelegate {
         
         let code = request.URL?.query?.substringFromIndex(key.endIndex)
         
-        QL2(code!)
+        // 3.利用requestToken换取AccessToken
+        loadAccessToken(code)
+        QL2(code)
         
         return false
+    }
+    
+    private func loadAccessToken(toCode: String?) {
+        // 1.准备请求路径
+        guard
+            let url = NSURL(string: "https://api.weibo.com/oauth2/access_token"),
+            let code = toCode
+        else {
+            return
+        }
+        
+        // 2.准备请求参数
+        let parameters = ["client_id": WB_App_Key, "client_secret": WB_App_Secret, "grant_type": "authorization_code", "code": code, "redirect_uri":WB_Redirect_uri]
+        
+        // 3.发送POST请求
+         Alamofire.request(.POST, url, parameters: parameters, encoding: .URL, headers: nil).responseJSON { (response) in
+            guard let data = response.data else {
+                QL2("获取不到数据")
+                return
+            }
+            
+            // json转对象
+            let dict = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
+            
+            // 数据转模型
+            let account = UserAccount(dict:dict)
+            
+            // 归档模型
+            account.saveAccount()
+            
+        }
     }
 }

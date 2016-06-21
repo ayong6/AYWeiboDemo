@@ -38,7 +38,7 @@ class TitleButton: UIButton {
     }
     
     // MARK - 内部控制方法
-    func setupUI() {
+    private func setupUI() {
         
         setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         setImage(UIImage(named: "navigationbar_arrow_down"), forState: .Normal)

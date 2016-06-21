@@ -22,8 +22,8 @@
 		DDB1ADC91D02D9F300AD1966 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */; };
 		DDBDE9F61CFD813A00048845 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = DDBDE9F41CFD813A00048845 /* MainVCSettings.json */; };
 		DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBDE9F51CFD813A00048845 /* NullViewController.swift */; };
-		DDD290B91D0425DC003C31AA /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */; };
-		DDD290BB1D042CA1003C31AA /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */; };
+		DDD290B91D0425DC003C31AA /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290B81D0425DC003C31AA /* UIButton+Extension.swift */; };
+		DDD290BB1D042CA1003C31AA /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BA1D042CA1003C31AA /* UIBarButtonItem+Extension.swift */; };
 		DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BE1D05C28E003C31AA /* TitleButton.swift */; };
 		DDD290C21D06B88A003C31AA /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD290C11D06B88A003C31AA /* Popover.storyboard */; };
 		DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290C31D06C684003C31AA /* AYPresentationController.swift */; };
@@ -35,6 +35,11 @@
 		DDD291151D0B44D9003C31AA /* AYMacroMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */; };
 		DDD2918D1D154F82003C31AA /* QRCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2918C1D154F82003C31AA /* QRCodeCreateViewController.swift */; };
 		DDD291901D182D97003C31AA /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2918F1D182D97003C31AA /* OAuthViewController.swift */; };
+		DDD6F5F61D187155009ED1B0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD6F5E91D187103009ED1B0 /* Alamofire.framework */; };
+		DDD6F5F81D187188009ED1B0 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6F5F71D187188009ED1B0 /* NetWorkTools.swift */; };
+		DDD6F5FA1D18C5D5009ED1B0 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6F5F91D18C5D5009ED1B0 /* UserAccount.swift */; };
+		DDD6F5FC1D19283F009ED1B0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6F5FB1D19283F009ED1B0 /* String+Extension.swift */; };
+		DDD6F6041D193C55009ED1B0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6F6031D193C55009ED1B0 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,55 @@
 			proxyType = 1;
 			remoteGlobalIDString = DD699C901CEBADEE00E4704D;
 			remoteInfo = AYWeibo;
+		};
+		DDD6F5E81D187103009ED1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		DDD6F5EA1D187103009ED1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		DDD6F5EC1D187103009ED1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		DDD6F5EE1D187103009ED1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		DDD6F5F01D187103009ED1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS";
+		};
+		DDD6F5F21D187103009ED1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS Tests";
+		};
+		DDD6F5F41D187103009ED1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -76,8 +130,8 @@
 		DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		DDBDE9F41CFD813A00048845 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		DDBDE9F51CFD813A00048845 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
-		DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
+		DDD290B81D0425DC003C31AA /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		DDD290BA1D042CA1003C31AA /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		DDD290BE1D05C28E003C31AA /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		DDD290C11D06B88A003C31AA /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		DDD290C31D06C684003C31AA /* AYPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYPresentationController.swift; sourceTree = "<group>"; };
@@ -89,6 +143,11 @@
 		DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AYMacroMethod.swift; sourceTree = "<group>"; };
 		DDD2918C1D154F82003C31AA /* QRCodeCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCreateViewController.swift; sourceTree = "<group>"; };
 		DDD2918F1D182D97003C31AA /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+		DDD6F5F71D187188009ED1B0 /* NetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
+		DDD6F5F91D18C5D5009ED1B0 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		DDD6F5FB1D19283F009ED1B0 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		DDD6F6031D193C55009ED1B0 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD6F5F61D187155009ED1B0 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,11 +247,14 @@
 		DD677FC71CED6038004F0A4C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				DDD290B81D0425DC003C31AA /* UIButtonExtension.swift */,
-				DDD290BA1D042CA1003C31AA /* UIBarButtonItemExtension.swift */,
+				DDD290B81D0425DC003C31AA /* UIButton+Extension.swift */,
+				DDD290BA1D042CA1003C31AA /* UIBarButtonItem+Extension.swift */,
 				DDD2910E1D0AFDF0003C31AA /* UITabBarItemExtension.swift */,
 				DDD290BE1D05C28E003C31AA /* TitleButton.swift */,
 				DDD291141D0B44D9003C31AA /* AYMacroMethod.swift */,
+				DDD6F5F71D187188009ED1B0 /* NetWorkTools.swift */,
+				DDD6F5FB1D19283F009ED1B0 /* String+Extension.swift */,
+				DDD6F6031D193C55009ED1B0 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -203,6 +266,7 @@
 				DD699CA81CEBADEE00E4704D /* AYWeiboTests */,
 				DD699CB31CEBADEE00E4704D /* AYWeiboUITests */,
 				DD699C921CEBADEE00E4704D /* Products */,
+				DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,8 +344,23 @@
 			isa = PBXGroup;
 			children = (
 				DDD2918F1D182D97003C31AA /* OAuthViewController.swift */,
+				DDD6F5F91D18C5D5009ED1B0 /* UserAccount.swift */,
 			);
 			name = OAuth;
+			sourceTree = "<group>";
+		};
+		DDD6F5DF1D187103009ED1B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDD6F5E91D187103009ED1B0 /* Alamofire.framework */,
+				DDD6F5EB1D187103009ED1B0 /* Alamofire iOS Tests.xctest */,
+				DDD6F5ED1D187103009ED1B0 /* Alamofire.framework */,
+				DDD6F5EF1D187103009ED1B0 /* Alamofire OSX Tests.xctest */,
+				DDD6F5F11D187103009ED1B0 /* Alamofire.framework */,
+				DDD6F5F31D187103009ED1B0 /* Alamofire tvOS Tests.xctest */,
+				DDD6F5F51D187103009ED1B0 /* Alamofire.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +454,12 @@
 			mainGroup = DD699C881CEBADEE00E4704D;
 			productRefGroup = DD699C921CEBADEE00E4704D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DDD6F5DF1D187103009ED1B0 /* Products */;
+					ProjectRef = DDD6F5DE1D187103009ED1B0 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DD699C901CEBADEE00E4704D /* AYWeibo */,
@@ -383,6 +468,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DDD6F5E91D187103009ED1B0 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = DDD6F5E81D187103009ED1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDD6F5EB1D187103009ED1B0 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = DDD6F5EA1D187103009ED1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDD6F5ED1D187103009ED1B0 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = DDD6F5EC1D187103009ED1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDD6F5EF1D187103009ED1B0 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = DDD6F5EE1D187103009ED1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDD6F5F11D187103009ED1B0 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = DDD6F5F01D187103009ED1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDD6F5F31D187103009ED1B0 /* Alamofire tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire tvOS Tests.xctest";
+			remoteRef = DDD6F5F21D187103009ED1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDD6F5F51D187103009ED1B0 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = DDD6F5F41D187103009ED1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DD699C8F1CEBADEE00E4704D /* Resources */ = {
@@ -419,17 +556,21 @@
 			files = (
 				DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */,
 				DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */,
-				DDD290B91D0425DC003C31AA /* UIButtonExtension.swift in Sources */,
+				DDD6F6041D193C55009ED1B0 /* Common.swift in Sources */,
+				DDD290B91D0425DC003C31AA /* UIButton+Extension.swift in Sources */,
 				DD677FD31CED686F004F0A4C /* MainViewController.swift in Sources */,
 				DD677FD11CED6626004F0A4C /* ProfileTableViewController.swift in Sources */,
 				DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */,
 				DDD291061D098FCE003C31AA /* AYTransitioningManager.swift in Sources */,
+				DDD6F5F81D187188009ED1B0 /* NetWorkTools.swift in Sources */,
+				DDD6F5FC1D19283F009ED1B0 /* String+Extension.swift in Sources */,
+				DDD6F5FA1D18C5D5009ED1B0 /* UserAccount.swift in Sources */,
 				DDD291151D0B44D9003C31AA /* AYMacroMethod.swift in Sources */,
 				DD699C951CEBADEE00E4704D /* AppDelegate.swift in Sources */,
 				DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */,
 				DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */,
 				DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */,
-				DDD290BB1D042CA1003C31AA /* UIBarButtonItemExtension.swift in Sources */,
+				DDD290BB1D042CA1003C31AA /* UIBarButtonItem+Extension.swift in Sources */,
 				DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */,
 				DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */,
 				DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */,
