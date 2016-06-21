@@ -13,7 +13,8 @@ class HomeTableViewController: BaseViewController {
     /// 导航条标题按钮
     private lazy var titleButton: UIButton = {
         let btn = TitleButton()
-        btn.setTitle("首页", forState: .Normal)
+        let title = UserAccount.loadUserAccount()?.screen_name
+        btn.setTitle(title, forState: .Normal)
         btn.addTarget(self, action: #selector(self.titleBtnClick(_:)), forControlEvents: .TouchUpInside)
         
         return btn

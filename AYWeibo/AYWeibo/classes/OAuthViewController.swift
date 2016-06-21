@@ -122,15 +122,17 @@ extension OAuthViewController: UIWebViewDelegate {
                 return
             }
             
-            // json转对象
+            // 3.1 json转对象
             let dict = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
             
-            // 数据转模型
+            // 3.2 数据转模型
             let account = UserAccount(dict:dict)
             
-            // 归档模型
-            account.saveAccount()
-            
+            // 3.3 获取用户数据
+            account.loadUserInfo({ (account) in
+                // 缓存用户数据
+                account.saveAccount()
+            })
         }
     }
 }

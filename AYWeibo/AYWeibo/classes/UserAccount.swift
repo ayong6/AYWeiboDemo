@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class UserAccount: NSObject, NSCoding {
     /// 定义属性保存授权模型
@@ -23,6 +24,10 @@ class UserAccount: NSObject, NSCoding {
     var uid: Int = 0
     /// 真正过期时间
     var expires_Date: NSDate?
+    /// 用户昵称
+    var screen_name: String?
+    /// 用户头像地址（大图），180×180像素
+    var avatar_large: String?
     
     init(dict: [String: AnyObject]) {
         super.init()
@@ -48,6 +53,44 @@ class UserAccount: NSObject, NSCoding {
     func saveAccount() -> Bool {
        
         return NSKeyedArchiver.archiveRootObject(self, toFile: "userAccount.plist".cachesDir())
+    }
+    
+    /// 获取用户信息
+    func loadUserInfo(finished:(account: UserAccount) -> ()) {
+        // 断言
+        // 断定access_token一定不等于nil的，如果运行的时候access_token等于nil，程序就会崩溃并且报错
+        assert(access_token != nil, "使用该方法必须先授权")
+        
+        // 1.准备请求路径
+        guard
+            let url = NSURL(string: "https://api.weibo.com/2/users/show.json") else {
+                return
+        }
+        
+        // 2.准备请求参数
+        let parameters = ["access_token": access_token!, "uid": uid]
+        
+        // 3.发送请求
+        Alamofire.request(.GET, url, parameters: parameters as? [String : AnyObject], encoding: .URL, headers: nil).responseJSON { (response) in
+            guard let data = response.data else {
+                QL2("获取不到数据")
+                return
+            }
+            
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! [String: AnyObject]
+                
+                // 1.取出用户信息
+                self.screen_name = dict["screen_name"] as? String
+                self.avatar_large = dict["avatar_large"] as? String
+                
+                // 2.保存授权信息
+                finished(account: self)
+                
+            } catch {
+                QL2("json转字典失败")
+            }
+        }
     }
     
     /// 解档读取
@@ -88,7 +131,8 @@ class UserAccount: NSObject, NSCoding {
         aCoder.encodeInteger(expires_in, forKey: "expires_in")
         aCoder.encodeInteger(uid, forKey: "uid")
         aCoder.encodeObject(expires_Date, forKey: "expires_Date")
-
+        aCoder.encodeObject(screen_name, forKey: "screen_name")
+        aCoder.encodeObject(avatar_large, forKey: "avatar_large")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,6 +140,8 @@ class UserAccount: NSObject, NSCoding {
         self.expires_in = aDecoder.decodeIntegerForKey("expires_in") as Int
         self.uid = aDecoder.decodeIntegerForKey("uid") as Int
         self.expires_Date = aDecoder.decodeObjectForKey("expires_Date") as? NSDate
+        self.avatar_large = aDecoder.decodeObjectForKey("avatar_large") as? String
+        self.screen_name = aDecoder.decodeObjectForKey("screen_name") as? String
     }
     
 }
