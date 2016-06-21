@@ -39,12 +39,13 @@ class BaseViewController: UITableViewController {
     // 注册
     @objc private func registerBtnClick(sender: UIButton) {
         QL2("")
-        presentViewController(OAuthViewController(), animated: true, completion: nil)
     }
     
     // 登录
     @objc private func loginBtnClick(sender: UIButton) {
         QL2("")
+        presentViewController(OAuthViewController(), animated: true, completion: nil)
+
     }
 
 }

@@ -11,10 +11,18 @@ import UIKit
 class UserAccount: NSObject, NSCoding {
     /// 定义属性保存授权模型
     static var account: UserAccount?
-    
+    /// 令牌
     var access_token: String?
-    var expires_in: Int = 0
+    /// 过期时间，从授权那一刻开始，多少秒之后过期
+    var expires_in: Int = 0 {
+        didSet {
+            expires_Date = NSDate(timeIntervalSinceNow: NSTimeInterval(expires_in))
+        }
+    }
+    /// 用户ID
     var uid: Int = 0
+    /// 真正过期时间
+    var expires_Date: NSDate?
     
     init(dict: [String: AnyObject]) {
         super.init()
@@ -50,11 +58,20 @@ class UserAccount: NSObject, NSCoding {
             return UserAccount.account
         }
         
+        QL2("userAccount.plist".cachesDir())
+        
         // 2.尝试从文件中加载
         guard let account = NSKeyedUnarchiver.unarchiveObjectWithFile("userAccount.plist".cachesDir()) as? UserAccount else {
-            return UserAccount.account
+            QL2("没有缓存授权文件")
+            return nil
         }
         
+        // 3.校验是否过期
+        guard let date = account.expires_Date where date.compare(NSDate()) != .OrderedAscending else {
+            QL2("令牌过期了")
+            return nil
+        }
+    
         UserAccount.account = account
         
         return UserAccount.account
@@ -70,6 +87,7 @@ class UserAccount: NSObject, NSCoding {
         aCoder.encodeObject(access_token, forKey: "access_token")
         aCoder.encodeInteger(expires_in, forKey: "expires_in")
         aCoder.encodeInteger(uid, forKey: "uid")
+        aCoder.encodeObject(expires_Date, forKey: "expires_Date")
 
     }
     
@@ -77,6 +95,7 @@ class UserAccount: NSObject, NSCoding {
         self.access_token = aDecoder.decodeObjectForKey("access_token") as? String
         self.expires_in = aDecoder.decodeIntegerForKey("expires_in") as Int
         self.uid = aDecoder.decodeIntegerForKey("uid") as Int
+        self.expires_Date = aDecoder.decodeObjectForKey("expires_Date") as? NSDate
     }
     
 }
