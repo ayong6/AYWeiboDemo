@@ -22,8 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 2.设置根控制器
 //        window?.rootViewController = MainViewController()
-        window?.rootViewController = WelcomeViewController()
-        
+//        window?.rootViewController = WelcomeViewController()
+        let vc = NewfeatureViewController(collectionViewLayout: AYNewfeatureLayout())
+        window?.rootViewController = vc
         // 3.显示窗口
         window?.makeKeyAndVisible()
         
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         // 设置标签栏背景色和样式颜色
         UITabBar.appearance().tintColor = UIColor.orangeColor()
+        
+        QorumLogs.enabled = true
         
         return true
     }

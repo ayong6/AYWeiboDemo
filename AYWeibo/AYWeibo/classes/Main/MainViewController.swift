@@ -13,8 +13,6 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        QorumLogs.enabled = true
-
         // iOS7以后设置tintColor，那么图片和文字都会按照tintColor渲染
         tabBar.tintColor = UIColor.orangeColor()
         
