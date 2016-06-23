@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import SVProgressHUD
 
 class OAuthViewController: UIViewController {
@@ -70,13 +69,13 @@ class OAuthViewController: UIViewController {
 extension OAuthViewController: UIWebViewDelegate {
     
     func webViewDidStartLoad(webView: UIWebView) {
-        // 显示提醒
+        // 显示网页加载提醒
         SVProgressHUD.showInfoWithStatus("正在加载中...")
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        // 关闭提醒
+        // 关闭网页加载提醒
         SVProgressHUD.dismiss()
     }
     
@@ -89,7 +88,7 @@ extension OAuthViewController: UIWebViewDelegate {
         
         // 1.判断当前是否授权回调页面
         guard urlStr.hasPrefix(WB_Redirect_uri) else {
-            QL2("不是授权回调页面")
+            QL2("不是授权回调页面,继续加载web")
             return true
         }
         
@@ -97,55 +96,54 @@ extension OAuthViewController: UIWebViewDelegate {
         let key = "code="
         
         guard urlStr.containsString(key) && !urlStr.containsString("error_") else {
-            QL2("授权失败")
+            QL2("授权失败，停止加载web")
             return false
         }
         
+        // 3.授权成功，提取code
         let code = request.URL?.query?.substringFromIndex(key.endIndex)
-        
-        // 3.利用requestToken换取AccessToken
-        loadAccessToken(code)
         QL2(code)
+        
+        // 4.通过授权code换取AccessToken
+        loadAccessToken(code)
         
         return false
     }
     
     private func loadAccessToken(toCode: String?) {
-        // 1.准备请求路径
-        guard
-            let url = NSURL(string: "https://api.weibo.com/oauth2/access_token"),
-            let code = toCode
-        else {
+        guard let code = toCode else {
+            QL2("传入的code无效")
             return
         }
         
-        // 2.准备请求参数
+        // 1.准备请求参数
         let parameters = ["client_id": WB_App_Key, "client_secret": WB_App_Secret, "grant_type": "authorization_code", "code": code, "redirect_uri":WB_Redirect_uri]
         
-        // 3.发送POST请求
-         Alamofire.request(.POST, url, parameters: parameters, encoding: .URL, headers: nil).responseJSON { (response) in
+        // 2.发送POST请求：通过code获取到access_token数据并保存到模型中
+        NetWorkTools.shareIntance.loadAccessToken(parameters) { (response) in
             guard let data = response.data else {
                 QL2("获取不到数据")
                 return
             }
             
-            // 3.1 json转对象
+            // 2.1 json转对象
             let dict = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
             
-            // 3.2 数据转模型
+            // 2.2 将获取到access_token数据的转模型
             let account = UserAccount(dict:dict)
             
-            // 3.3 获取用户数据
+            // 3.获取用户数据
             account.loadUserInfo({ (account) in
-                // 缓存用户数据
+                // 3.1缓存用户数据：包括access_token数据
                 account.saveAccount()
                 
-                // 关闭界面
+                // 3.2关闭界面
                 self.leftBarItemClick()
                 
-                // 发送通知进行根控制器切换：欢迎界面
+                // 3.3发送通知进行根控制器切换：欢迎界面
                 NSNotificationCenter.defaultCenter().postNotificationName(AYSwitchRootViewController, object: false)
             })
+
         }
     }
 }

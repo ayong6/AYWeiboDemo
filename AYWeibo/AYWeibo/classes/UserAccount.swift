@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class UserAccount: NSObject, NSCoding {
     /// 定义属性保存授权模型
@@ -47,6 +46,7 @@ class UserAccount: NSObject, NSCoding {
         
         return "\(dict)"
     }
+    
     // MARK: - 外部控制方法
     
     /// 归档存储
@@ -56,22 +56,17 @@ class UserAccount: NSObject, NSCoding {
     }
     
     /// 获取用户信息
-    func loadUserInfo(finished:(account: UserAccount) -> ()) {
+    /// 调用此方法之前，确保已经授权完成并对access_token令牌数据进行转模型
+    func loadUserInfo(completion:(account: UserAccount) -> ()) {
         // 断言
         // 断定access_token一定不等于nil的，如果运行的时候access_token等于nil，程序就会崩溃并且报错
         assert(access_token != nil, "使用该方法必须先授权")
         
-        // 1.准备请求路径
-        guard
-            let url = NSURL(string: "https://api.weibo.com/2/users/show.json") else {
-                return
-        }
-        
-        // 2.准备请求参数
+        // 1.准备请求参数
         let parameters = ["access_token": access_token!, "uid": uid]
         
-        // 3.发送请求
-        Alamofire.request(.GET, url, parameters: parameters as? [String : AnyObject], encoding: .URL, headers: nil).responseJSON { (response) in
+        // 2.发送请求
+        NetWorkTools.shareIntance.loadUserInfo(parameters as! [String : AnyObject]) { (response) in
             guard let data = response.data else {
                 QL2("获取不到数据")
                 return
@@ -85,7 +80,7 @@ class UserAccount: NSObject, NSCoding {
                 self.avatar_large = dict["avatar_large"] as? String
                 
                 // 2.保存授权信息
-                finished(account: self)
+                completion(account: self)
                 
             } catch {
                 QL2("json转字典失败")
