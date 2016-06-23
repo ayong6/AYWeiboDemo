@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45C9503927702273DE26EE20 /* Pods_AYWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA538AAE5F6A62028BC66BAA /* Pods_AYWeibo.framework */; };
+		DD5251531D1BCA5600B6CAF6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251521D1BCA5600B6CAF6 /* UserModel.swift */; };
 		DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */; };
 		DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCC1CED65EA004F0A4C /* DiscoverTableViewController.swift */; };
 		DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCE1CED6615004F0A4C /* MessageTableViewController.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		BFD7938325764509CF28D412 /* Pods-AYWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AYWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AYWeibo/Pods-AYWeibo.debug.xcconfig"; sourceTree = "<group>"; };
+		DD5251521D1BCA5600B6CAF6 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		DD677FCC1CED65EA004F0A4C /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		DD677FCE1CED6615004F0A4C /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				DDD290C01D06B868003C31AA /* Popover */,
 				DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */,
 				DDC779A61D1BB7DB00E55809 /* StatuseModel.swift */,
+				DD5251521D1BCA5600B6CAF6 /* UserModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */,
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,
 				DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */,
+				DD5251531D1BCA5600B6CAF6 /* UserModel.swift in Sources */,
 				DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */,
 				DDD2918D1D154F82003C31AA /* QRCodeCreateViewController.swift in Sources */,
 				DDD291901D182D97003C31AA /* OAuthViewController.swift in Sources */,

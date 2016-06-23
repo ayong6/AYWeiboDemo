@@ -73,9 +73,8 @@ class HomeTableViewController: BaseViewController {
                 for dict in arr {
                     let statuse = StatusesModel(dict: dict)
                     statuses.append(statuse)
+                    QL2(statuse.user)
                 }
-                
-                QL2(statuses)
                 
             } catch {
                 QL2("json解析失败")

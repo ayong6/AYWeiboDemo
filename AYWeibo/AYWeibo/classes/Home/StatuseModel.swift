@@ -21,6 +21,9 @@ class StatusesModel: NSObject {
     /// 微博来源
     var source: String?
     
+    /// 微博作者的用户信息
+    var user: UserModel?
+    
 
 
     init(dict: [String: AnyObject]) {
@@ -32,8 +35,17 @@ class StatusesModel: NSObject {
         
     }
     
+    override func setValue(value: AnyObject?, forKey key: String) {
+        if key == "user" {
+            user = UserModel(dict: value as! [String: AnyObject])
+            return
+        }
+        
+        super.setValue(value, forKey: key)
+    }
+    
     override var description: String {
-        let keys = ["created_at", "idstr", "text", "source"]
+        let keys = ["created_at", "idstr", "text", "source", "user"]
         let dict = dictionaryWithValuesForKeys(keys)
         
         return "\(dict)"
