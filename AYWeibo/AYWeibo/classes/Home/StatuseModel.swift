@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatusesModel: NSObject {
+class StatuseModel: NSObject {
     /// 微博创建时间
     var created_at: String?
     

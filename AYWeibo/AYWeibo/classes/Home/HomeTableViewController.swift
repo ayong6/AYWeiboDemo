@@ -63,7 +63,7 @@ class HomeTableViewController: BaseViewController {
                 let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
                 
                 // 3.字典转模型
-                var statuses = [StatusesModel]()
+                var statuses = [StatuseModel]()
 
                 guard let arr = dict["statuses"] as? [[String: AnyObject]] else {
                     QL2("提取数据失败")
@@ -71,7 +71,7 @@ class HomeTableViewController: BaseViewController {
                 }
                 
                 for dict in arr {
-                    let statuse = StatusesModel(dict: dict)
+                    let statuse = StatuseModel(dict: dict)
                     statuses.append(statuse)
                     QL2(statuse.user)
                 }
@@ -116,7 +116,6 @@ class HomeTableViewController: BaseViewController {
         
         // 1.3 modal控制器
         self.presentViewController(presentControl, animated: true, completion: nil)
-        
     }
     
     /// 左侧导航条按钮监听方法
