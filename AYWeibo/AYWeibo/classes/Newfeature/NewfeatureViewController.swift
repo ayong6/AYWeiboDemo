@@ -35,6 +35,8 @@ class NewfeatureViewController: UICollectionViewController {
     
     @objc private func startButtonClick() {
         QL2("")
+        // 发送通知进行根控制器切换：首页控制器
+        NSNotificationCenter.defaultCenter().postNotificationName(AYSwitchRootViewController, object: true)
     }
     
     private func startButtonAnimation() {

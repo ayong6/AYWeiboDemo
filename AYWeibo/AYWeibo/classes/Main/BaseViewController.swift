@@ -44,8 +44,8 @@ class BaseViewController: UITableViewController {
     // 登录
     @objc private func loginBtnClick(sender: UIButton) {
         QL2("")
-        presentViewController(OAuthViewController(), animated: true, completion: nil)
-
+        let navigation = UINavigationController(rootViewController: OAuthViewController())
+        presentViewController(navigation, animated: true, completion: nil)
     }
 
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WebImage
+import SDWebImage
 
 class WelcomeViewController: UIViewController {
     /// 头像底部约束
@@ -60,12 +60,16 @@ class WelcomeViewController: UIViewController {
         // 让头像执行动画
         UIView.animateWithDuration(1.0, animations: {
             self.iconBottomConstraint.constant = -(UIScreen.mainScreen().bounds.height + self.iconBottomConstraint.constant)
-            
             self.view.layoutIfNeeded()
+            
         }) { (_) in
             UIView.animateWithDuration(0.5, animations: {
                 self.titleLabel.alpha = 1.0
-            })
+            
+            }) { (_) in
+                // 发送通知进行根控制器切换：首页控制器
+                NSNotificationCenter.defaultCenter().postNotificationName(AYSwitchRootViewController, object: true)
+            }
         }
     }
     

@@ -13,6 +13,8 @@ import Foundation
 let AYTransitioningManagerPresented = "AYTransitioningManagerPresented"
 /// 消失
 let AYTransitioningManagerDismissed = "AYTransitioningManagerDismissed"
+/// 切换根控制器的通知
+let AYSwitchRootViewController =  "AYSwitchRootViewController"
 
 // MARK: - 定义扫描码标签栏按钮Tag
 let qrCodeItemTag: Int = 100001

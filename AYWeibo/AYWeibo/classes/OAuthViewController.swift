@@ -46,6 +46,13 @@ class OAuthViewController: UIViewController {
     private func setupSubViews() {
         customWebView.delegate = self
         view.addSubview(customWebView)
+        
+        // 导航栏左侧item
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: #selector(self.leftBarItemClick))
+    }
+    
+    @objc private func leftBarItemClick() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     private func setupConstraints() {
@@ -132,6 +139,12 @@ extension OAuthViewController: UIWebViewDelegate {
             account.loadUserInfo({ (account) in
                 // 缓存用户数据
                 account.saveAccount()
+                
+                // 关闭界面
+                self.leftBarItemClick()
+                
+                // 发送通知进行根控制器切换：欢迎界面
+                NSNotificationCenter.defaultCenter().postNotificationName(AYSwitchRootViewController, object: false)
             })
         }
     }
