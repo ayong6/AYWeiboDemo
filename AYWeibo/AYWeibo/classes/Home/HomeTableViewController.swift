@@ -36,6 +36,10 @@ class HomeTableViewController: BaseViewController {
         // 3.注册通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.titleChange), name: AYTransitioningManagerPresented, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.titleChange), name: AYTransitioningManagerDismissed, object: nil)
+        
+        // 4.加载当前登录用户及其所关注（授权）用户的最新微博
+        loadStatusesData()
+
     }
     
     deinit {
@@ -44,6 +48,40 @@ class HomeTableViewController: BaseViewController {
     }
     
     // MARK: - 内部控制方法
+    
+    // 加载当前登录用户及其所关注（授权）用户的最新微博
+    private func loadStatusesData() {
+        NetWorkTools.shareIntance.loadStatuses { (response) in
+            // 1.获取网络数据
+            guard let data = response.data else {
+                QL2("获取网络数据失败")
+                return
+            }
+            
+            // 2.json转字典
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
+                
+                // 3.字典转模型
+                var statuses = [StatusesModel]()
+
+                guard let arr = dict["statuses"] as? [[String: AnyObject]] else {
+                    QL2("提取数据失败")
+                    return
+                }
+                
+                for dict in arr {
+                    let statuse = StatusesModel(dict: dict)
+                    statuses.append(statuse)
+                }
+                
+                QL2(statuses)
+                
+            } catch {
+                QL2("json解析失败")
+            }
+        }
+    }
     
     // 接收到通知后的实现方法
     @objc private func titleChange() {

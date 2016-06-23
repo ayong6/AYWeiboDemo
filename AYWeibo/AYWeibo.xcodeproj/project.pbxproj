@@ -27,6 +27,7 @@
 		DDB1ADC91D02D9F300AD1966 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */; };
 		DDBDE9F61CFD813A00048845 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = DDBDE9F41CFD813A00048845 /* MainVCSettings.json */; };
 		DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBDE9F51CFD813A00048845 /* NullViewController.swift */; };
+		DDC779A71D1BB7DB00E55809 /* StatuseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC779A61D1BB7DB00E55809 /* StatuseModel.swift */; };
 		DDD290B91D0425DC003C31AA /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290B81D0425DC003C31AA /* UIButton+Extension.swift */; };
 		DDD290BB1D042CA1003C31AA /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BA1D042CA1003C31AA /* UIBarButtonItem+Extension.swift */; };
 		DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD290BE1D05C28E003C31AA /* TitleButton.swift */; };
@@ -90,6 +91,7 @@
 		DDB1ADC81D02D9F300AD1966 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		DDBDE9F41CFD813A00048845 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		DDBDE9F51CFD813A00048845 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
+		DDC779A61D1BB7DB00E55809 /* StatuseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatuseModel.swift; sourceTree = "<group>"; };
 		DDD290B81D0425DC003C31AA /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		DDD290BA1D042CA1003C31AA /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		DDD290BE1D05C28E003C31AA /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				DDD291091D0ADDBE003C31AA /* QRCord */,
 				DDD290C01D06B868003C31AA /* Popover */,
 				DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */,
+				DDC779A61D1BB7DB00E55809 /* StatuseModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				DD677FD31CED686F004F0A4C /* MainViewController.swift in Sources */,
 				DD677FD11CED6626004F0A4C /* ProfileTableViewController.swift in Sources */,
 				DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */,
+				DDC779A71D1BB7DB00E55809 /* StatuseModel.swift in Sources */,
 				DDD291061D098FCE003C31AA /* AYTransitioningManager.swift in Sources */,
 				DD7A624D1D1A9F17009427C1 /* AYNewfeatureCell.swift in Sources */,
 				DDD6F5F81D187188009ED1B0 /* NetWorkTools.swift in Sources */,

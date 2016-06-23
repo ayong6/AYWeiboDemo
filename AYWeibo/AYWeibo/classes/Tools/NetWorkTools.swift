@@ -39,4 +39,19 @@ class NetWorkTools: NSObject {
         }
     }
     
+    /// 获取当前登录用户及其所关注（授权）用户的最新微博
+    func loadStatuses(completion: (response: Response<AnyObject, NSError>) -> Void){
+        assert(UserAccount.loadUserAccount() != nil, "必须先授权之后才能获取用户微博数据")
+        
+        guard let url = NSURL(string: "https://api.weibo.com/2/statuses/home_timeline.json") else {
+            return
+        }
+        
+        let parameters = ["access_token": UserAccount.loadUserAccount()!.access_token!]
+        
+        Alamofire.request(.GET, url, parameters: parameters, encoding: .URL, headers: nil).responseJSON { (response) in
+            completion(response: response)
+        }
+    }
+    
 }

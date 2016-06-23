@@ -127,23 +127,26 @@ extension OAuthViewController: UIWebViewDelegate {
             }
             
             // 2.1 json转对象
-            let dict = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
-            
-            // 2.2 将获取到access_token数据的转模型
-            let account = UserAccount(dict:dict)
-            
-            // 3.获取用户数据
-            account.loadUserInfo({ (account) in
-                // 3.1缓存用户数据：包括access_token数据
-                account.saveAccount()
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
+                // 2.2 将获取到access_token数据的转模型
+                let account = UserAccount(dict:dict)
                 
-                // 3.2关闭界面
-                self.leftBarItemClick()
-                
-                // 3.3发送通知进行根控制器切换：欢迎界面
-                NSNotificationCenter.defaultCenter().postNotificationName(AYSwitchRootViewController, object: false)
-            })
+                // 3.获取用户数据
+                account.loadUserInfo({ (account) in
+                    // 3.1缓存用户数据：包括access_token数据
+                    account.saveAccount()
+                    
+                    // 3.2关闭界面
+                    self.leftBarItemClick()
+                    
+                    // 3.3发送通知进行根控制器切换：欢迎界面
+                    NSNotificationCenter.defaultCenter().postNotificationName(AYSwitchRootViewController, object: false)
+                })
 
+            } catch {
+                QL2("json转字典失败")
+            }
         }
     }
 }
