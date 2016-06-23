@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let reuseIdentifier = "HomeCell"
+
 class HomeTableViewController: BaseViewController {
     
     /// 导航条标题按钮
@@ -19,6 +21,13 @@ class HomeTableViewController: BaseViewController {
         
         return btn
     }()
+    
+    /// 保存所有微博数据
+    var statuses: [StatuseModel]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +48,35 @@ class HomeTableViewController: BaseViewController {
         
         // 4.加载当前登录用户及其所关注（授权）用户的最新微博
         loadStatusesData()
-
+        
+        // 5.创建cell并注册标示符
+        self.tableView.registerNib(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     
     deinit {
         // 移除通知
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    // MARK: tableViewDataSurce
+ 
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statuses?.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // 1.获取cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HomeTableViewCell
+        // 2.设置数据
+        cell.statuseData = statuses?[indexPath.row]
+        // 3.返回cell
+        return cell
+    }
+    
+    // MARK: tableViewDelegate
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200.0
     }
     
     // MARK: - 内部控制方法
@@ -63,7 +95,7 @@ class HomeTableViewController: BaseViewController {
                 let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
                 
                 // 3.字典转模型
-                var statuses = [StatuseModel]()
+                var models = [StatuseModel]()
 
                 guard let arr = dict["statuses"] as? [[String: AnyObject]] else {
                     QL2("提取数据失败")
@@ -72,9 +104,10 @@ class HomeTableViewController: BaseViewController {
                 
                 for dict in arr {
                     let statuse = StatuseModel(dict: dict)
-                    statuses.append(statuse)
-                    QL2(statuse.user)
+                    models.append(statuse)
                 }
+                
+                self.statuses = models
                 
             } catch {
                 QL2("json解析失败")

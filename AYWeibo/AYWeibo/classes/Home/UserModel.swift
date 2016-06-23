@@ -20,7 +20,12 @@ class UserModel: NSObject {
     var profile_image_url: String?
     
     /// 用户认证类型
+    /// -1：没有认真， 0：认证用户， 2，3，5：企业认证， 220：达人
     var verified_type: Int = -1
+    
+    /// 会员等级
+    /// 1~6：分别表示对应等级的会员
+    var mbrank: Int = -1
 
     init(dict: [String: AnyObject]) {
         super.init()

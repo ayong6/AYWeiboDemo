@@ -33,8 +33,39 @@ class HomeTableViewCell: UITableViewCell {
                 iconImageView.sd_setImageWithURL(url)
             }
             // 2.设置认证图标
+            if let type = statuseData?.user?.verified_type {
+                // 2.1 认真图标默认不隐藏
+                verifiedImageView.hidden = false
+                
+                var name = "avatar_vip"
+                
+                switch type {
+                case 0:
+                    name = "avatar_vip"
+                case 2, 3, 5:
+                    name = "avatar_enterprise_vip"
+                case 220:
+                    name = "avatar_grassroot"
+                default:
+                    verifiedImageView.hidden = true
+                }
+                
+                verifiedImageView.image = UIImage(named: name)
+            }
             
             // 3.设置会员图标
+            if let mbrank = statuseData?.user?.mbrank {
+                if mbrank >= 1 && mbrank <= 6 {
+                    vipImageView.image = UIImage(named: "common_icon_membership_level\(mbrank)")
+                    nameLabel.textColor = UIColor.orangeColor()
+                } else if mbrank == 0 {
+                    vipImageView.image = UIImage(named: "common_icon_membership")
+                    nameLabel.textColor = UIColor.orangeColor()
+                } else {
+                    vipImageView.image = nil
+                    nameLabel.textColor = UIColor.blackColor()
+                }
+            }
             
             // 4.设置昵称
             nameLabel.text = statuseData?.user?.screen_name
@@ -53,13 +84,22 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupSubViews()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    // MARK: - 内部控制方法
+    
+    private func setupSubViews() {
+        iconImageView.layer.cornerRadius = 25.0
+        iconImageView.layer.borderWidth = 1.0
+        iconImageView.layer.borderColor = UIColor.grayColor().CGColor
+        iconImageView.clipsToBounds = true
     }
     
 }
