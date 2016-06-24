@@ -23,7 +23,7 @@ class HomeTableViewController: BaseViewController {
     }()
     
     /// 保存所有微博数据
-    var statuses: [StatuseModel]? {
+    var statuses: [StatuseViewModel]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -68,7 +68,7 @@ class HomeTableViewController: BaseViewController {
         // 1.获取cell
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HomeTableViewCell
         // 2.设置数据
-        cell.statuseData = statuses?[indexPath.row]
+        cell.viewModel = statuses?[indexPath.row]
         // 3.返回cell
         return cell
     }
@@ -95,7 +95,7 @@ class HomeTableViewController: BaseViewController {
                 let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
                 
                 // 3.字典转模型
-                var models = [StatuseModel]()
+                var models = [StatuseViewModel]()
 
                 guard let arr = dict["statuses"] as? [[String: AnyObject]] else {
                     QL2("提取数据失败")
@@ -104,8 +104,7 @@ class HomeTableViewController: BaseViewController {
                 
                 for dict in arr {
                     let statuse = StatuseModel(dict: dict)
-                    models.append(statuse)
-                    QL2(statuse.created_at)
+                    models.append(StatuseViewModel(statuse: statuse))
                 }
                 
                 self.statuses = models

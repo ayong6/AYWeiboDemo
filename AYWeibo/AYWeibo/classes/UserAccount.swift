@@ -39,7 +39,7 @@ class UserAccount: NSObject, NSCoding {
         
     }
     
-    // 同过重写这个属性，可快速查看模型的键值对
+    // 通过重写这个属性，可快print时候速查看模型的键值对
     override var description: String {
         let propertys = ["access_token", "expires_in", "uid"]
         let dict = dictionaryWithValuesForKeys(propertys)
