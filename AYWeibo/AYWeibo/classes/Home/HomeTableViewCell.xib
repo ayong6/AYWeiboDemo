@@ -29,28 +29,28 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_icon_membership" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-Nm-qtt" userLabel="会员图标">
-                        <rect key="frame" x="118" y="13" width="14" height="14"/>
+                        <rect key="frame" x="118" y="18" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="3rK-at-bBa"/>
                             <constraint firstAttribute="width" constant="14" id="ZR2-ik-3r6"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="say-2S-cdQ" userLabel="昵称">
-                        <rect key="frame" x="68" y="10" width="42" height="21"/>
+                        <rect key="frame" x="68" y="15" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-hS-1Bg" userLabel="时间">
-                        <rect key="frame" x="68" y="40" width="42" height="20"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-hS-1Bg" userLabel="时间">
+                        <rect key="frame" x="68" y="38" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBl-oK-a9x" userLabel="来源">
-                        <rect key="frame" x="129" y="39" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="113.5" y="38" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7N-Oj-nPB" userLabel="正文">
@@ -62,16 +62,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="fUf-hS-1Bg" firstAttribute="leading" secondItem="Pot-Vt-JTo" secondAttribute="trailing" constant="8" id="2zQ-TX-R0X"/>
-                    <constraint firstItem="kBl-oK-a9x" firstAttribute="leading" secondItem="fUf-hS-1Bg" secondAttribute="trailing" constant="19" id="9Eb-MN-TkO"/>
+                    <constraint firstItem="kBl-oK-a9x" firstAttribute="leading" secondItem="fUf-hS-1Bg" secondAttribute="trailing" constant="10" id="9Eb-MN-TkO"/>
                     <constraint firstItem="Pot-Vt-JTo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Flj-CA-ovS"/>
                     <constraint firstItem="Pot-Vt-JTo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="GHC-Pa-iJB"/>
-                    <constraint firstItem="fUf-hS-1Bg" firstAttribute="bottom" secondItem="Pot-Vt-JTo" secondAttribute="bottom" id="IpV-of-8Ae"/>
+                    <constraint firstItem="fUf-hS-1Bg" firstAttribute="bottom" secondItem="Pot-Vt-JTo" secondAttribute="bottom" constant="-5" id="IpV-of-8Ae"/>
                     <constraint firstItem="say-2S-cdQ" firstAttribute="leading" secondItem="Pot-Vt-JTo" secondAttribute="trailing" constant="8" id="RSo-LJ-NXY"/>
                     <constraint firstItem="wKn-Nm-qtt" firstAttribute="leading" secondItem="say-2S-cdQ" secondAttribute="trailing" constant="8" id="SiJ-LG-KCr"/>
                     <constraint firstItem="wKn-Nm-qtt" firstAttribute="centerY" secondItem="say-2S-cdQ" secondAttribute="centerY" id="bf2-6t-3Is"/>
-                    <constraint firstItem="kBl-oK-a9x" firstAttribute="bottom" secondItem="Pot-Vt-JTo" secondAttribute="bottom" id="dNc-2G-2zx"/>
+                    <constraint firstItem="kBl-oK-a9x" firstAttribute="bottom" secondItem="Pot-Vt-JTo" secondAttribute="bottom" constant="-5" id="dNc-2G-2zx"/>
                     <constraint firstItem="M7N-Oj-nPB" firstAttribute="leading" secondItem="Pot-Vt-JTo" secondAttribute="leading" id="em3-gO-8Er"/>
-                    <constraint firstItem="say-2S-cdQ" firstAttribute="top" secondItem="Pot-Vt-JTo" secondAttribute="top" id="hnC-YK-OOL"/>
+                    <constraint firstItem="say-2S-cdQ" firstAttribute="top" secondItem="Pot-Vt-JTo" secondAttribute="top" constant="5" id="hnC-YK-OOL"/>
                     <constraint firstItem="X6a-xZ-cAG" firstAttribute="trailing" secondItem="Pot-Vt-JTo" secondAttribute="trailing" id="lO9-8V-3z7"/>
                     <constraint firstItem="M7N-Oj-nPB" firstAttribute="top" secondItem="Pot-Vt-JTo" secondAttribute="bottom" constant="10" id="pc0-6g-xvs"/>
                     <constraint firstItem="X6a-xZ-cAG" firstAttribute="bottom" secondItem="Pot-Vt-JTo" secondAttribute="bottom" id="qHh-qa-9vM"/>

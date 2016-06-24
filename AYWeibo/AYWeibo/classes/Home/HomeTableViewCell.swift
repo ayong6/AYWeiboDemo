@@ -71,10 +71,93 @@ class HomeTableViewCell: UITableViewCell {
             nameLabel.text = statuseData?.user?.screen_name
             
             // 5.设置时间
-            timeLabel.text = statuseData?.created_at
+            /*
+             刚刚：一分钟内
+             x分钟前：一小时内
+             x小时前：当天
+             
+             昨天 HH：mm（昨天）
+             MM-dd HH：mm（一年内）
+             yyyy-MM-dd HH：mm（更早期）
+             
+             "Fri Jun 24 15:34:06 +0800 2016"
+             */
+
+            if var timeStr = statuseData?.created_at {
+                
+                timeStr = "Fri Jun 22 15:40:06 +0800 2016"
+                
+                // 1.将服务器返回的时间
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "EE MM dd HH:mm:ss Z yyyy"
+                // 如果不指定以下区域，真机中可能无法转换
+                formatter.locale = NSLocale(localeIdentifier: "en")
+                
+                let createDate = formatter.dateFromString(timeStr)!
+                
+                // 2.创建日历
+                let calendar = NSCalendar.currentCalendar()
+                
+                var result = ""
+                var formatterStr = "HH:mm"
+                
+                // 3.对日期进行判断
+                if calendar.isDateInToday(createDate) {
+                    // 3.1 是今天发布
+                    // 比较发布的时间跟当前时间的差值
+                    let interval = Int(NSDate().timeIntervalSinceDate(createDate))
+                    
+                    if interval < 60 {
+                        // 时间小于1分钟
+                        result = "刚刚"
+                        
+                    } else if interval < 60 * 60 {
+                        // 时间小于一个小时
+                        result = "\(interval / 60)分前"
+                        
+                    } else if interval < 60 * 60 * 24 {
+                        // 时间小于一天
+                        result = "\(interval / (60 * 60))小时前"
+                        
+                    }
+                    
+                } else if calendar.isDateInYesterday(createDate) {
+                    // 3.2 昨天发布
+                    formatterStr = "昨天" + formatterStr
+                    formatter.dateFormat = formatterStr
+                    result = formatter.stringFromDate(createDate)
+                    
+                } else {
+                    // 3.3不是今天发布也不是今年发布
+                    // 获取两个时间时间间隔
+                    let components = calendar.components(.Year, fromDate: createDate, toDate: NSDate(), options: NSCalendarOptions(rawValue: 0))
+                    
+                    if components.year >= 1 {
+                        // 更早时间
+                        formatterStr = "yyyy-MM-dd " + formatterStr
+                    
+                    } else {
+                        // 一年以内
+                        formatterStr = "MM-dd " + formatterStr
+                        
+                    }
+                    formatter.dateFormat = formatterStr
+                    result = formatter.stringFromDate(createDate)
+                    
+                }
+                timeLabel.text = result
+            }
             
             // 6.设置来源
-            sourceLabel.text = statuseData?.source
+            if let source: NSString = statuseData?.source where source != "" {
+                let startIndex = source.rangeOfString(">").location + 1
+                let length = source.rangeOfString("<", options: .BackwardsSearch).location - startIndex
+                let restStr = source.substringWithRange(NSMakeRange(startIndex, length))
+                
+                sourceLabel.text = "来自\(restStr)"
+            } else {
+                sourceLabel.text = ""
+            }
             
             // 7.设置正文
             contentLabel.text = statuseData?.text

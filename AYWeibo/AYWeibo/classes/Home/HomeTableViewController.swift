@@ -105,6 +105,7 @@ class HomeTableViewController: BaseViewController {
                 for dict in arr {
                     let statuse = StatuseModel(dict: dict)
                     models.append(statuse)
+                    QL2(statuse.created_at)
                 }
                 
                 self.statuses = models
