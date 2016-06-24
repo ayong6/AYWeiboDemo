@@ -11,6 +11,7 @@
 		DD5251531D1BCA5600B6CAF6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251521D1BCA5600B6CAF6 /* UserModel.swift */; };
 		DD5251561D1BE48400B6CAF6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251541D1BE48400B6CAF6 /* HomeTableViewCell.swift */; };
 		DD5251571D1BE48400B6CAF6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD5251551D1BE48400B6CAF6 /* HomeTableViewCell.xib */; };
+		DD5251591D1D1CD900B6CAF6 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251581D1D1CD900B6CAF6 /* NSDate+Extension.swift */; };
 		DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */; };
 		DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCC1CED65EA004F0A4C /* DiscoverTableViewController.swift */; };
 		DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCE1CED6615004F0A4C /* MessageTableViewController.swift */; };
@@ -72,6 +73,7 @@
 		DD5251521D1BCA5600B6CAF6 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DD5251541D1BE48400B6CAF6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		DD5251551D1BE48400B6CAF6 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		DD5251581D1D1CD900B6CAF6 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		DD677FCC1CED65EA004F0A4C /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		DD677FCE1CED6615004F0A4C /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				DDD6F5F71D187188009ED1B0 /* NetWorkTools.swift */,
 				DDD6F5FB1D19283F009ED1B0 /* String+Extension.swift */,
 				DDD6F6031D193C55009ED1B0 /* Common.swift */,
+				DD5251581D1D1CD900B6CAF6 /* NSDate+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				DDD291061D098FCE003C31AA /* AYTransitioningManager.swift in Sources */,
 				DD7A624D1D1A9F17009427C1 /* AYNewfeatureCell.swift in Sources */,
 				DDD6F5F81D187188009ED1B0 /* NetWorkTools.swift in Sources */,
+				DD5251591D1D1CD900B6CAF6 /* NSDate+Extension.swift in Sources */,
 				DD7A624B1D1A99AA009427C1 /* AYNewfeatureLayout.swift in Sources */,
 				DDD6F5FC1D19283F009ED1B0 /* String+Extension.swift in Sources */,
 				DDD6F5FA1D18C5D5009ED1B0 /* UserAccount.swift in Sources */,
