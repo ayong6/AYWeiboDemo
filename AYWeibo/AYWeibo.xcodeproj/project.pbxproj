@@ -13,6 +13,7 @@
 		DD5251571D1BE48400B6CAF6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD5251551D1BE48400B6CAF6 /* HomeTableViewCell.xib */; };
 		DD5251591D1D1CD900B6CAF6 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251581D1D1CD900B6CAF6 /* NSDate+Extension.swift */; };
 		DD5251601D1DB4A500B6CAF6 /* StatuseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52515F1D1DB4A500B6CAF6 /* StatuseViewModel.swift */; };
+		DD5251621D1E414A00B6CAF6 /* RequestAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251611D1E414A00B6CAF6 /* RequestAccount.swift */; };
 		DD677FCB1CED65CD004F0A4C /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */; };
 		DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCC1CED65EA004F0A4C /* DiscoverTableViewController.swift */; };
 		DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD677FCE1CED6615004F0A4C /* MessageTableViewController.swift */; };
@@ -76,6 +77,7 @@
 		DD5251551D1BE48400B6CAF6 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		DD5251581D1D1CD900B6CAF6 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		DD52515F1D1DB4A500B6CAF6 /* StatuseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatuseViewModel.swift; sourceTree = "<group>"; };
+		DD5251611D1E414A00B6CAF6 /* RequestAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAccount.swift; sourceTree = "<group>"; };
 		DD677FCA1CED65CD004F0A4C /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		DD677FCC1CED65EA004F0A4C /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		DD677FCE1CED6615004F0A4C /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			children = (
 				DDD2918F1D182D97003C31AA /* OAuthViewController.swift */,
 				DDD6F5F91D18C5D5009ED1B0 /* UserAccount.swift */,
+				DD5251611D1E414A00B6CAF6 /* RequestAccount.swift */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7A62141D1992BE009427C1 /* WelcomeViewController.swift in Sources */,
+				DD5251621D1E414A00B6CAF6 /* RequestAccount.swift in Sources */,
 				DD5251601D1DB4A500B6CAF6 /* StatuseViewModel.swift in Sources */,
 				DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */,
 				DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */,

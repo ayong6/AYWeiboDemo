@@ -59,7 +59,7 @@ extension AppDelegate {
     /// 返回一个默认的根控制器
     private func defualtRootViewController() -> UIViewController {
         // 1.判断是否登录
-        if UserAccount.isLogin() {
+        if RequestAccount.isLogin() {
             
             // 2.如果登录，判断是否有新版本
             if isNewVersion() {

@@ -125,25 +125,24 @@ extension OAuthViewController: UIWebViewDelegate {
                 QL2("获取不到数据")
                 return
             }
-            
+            QL4(NSThread.currentThread())
             // 2.1 json转对象
             do {
                 let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves) as! [String: AnyObject]
                 // 2.2 将获取到access_token数据的转模型
                 let account = UserAccount(dict:dict)
                 
-                // 3.获取用户数据
-                account.loadUserInfo({ (account) in
-                    // 3.1缓存用户数据：包括access_token数据
-                    account.saveAccount()
-                    
-                    // 3.2关闭界面
+                // 3.获取用户数据并缓存
+                RequestAccount.loadAndSaveAccount(account, complete: { 
+                    // 因为获取用户数据并缓存数据是在异步进行的
+                    // 如果不在闭包中进行关闭界面和控制器的操作，会造成提前进入欢迎界面，导致因为获取不到缓存数据而报错
+                    // 4.关闭界面
                     self.leftBarItemClick()
                     
-                    // 3.3发送通知进行根控制器切换：欢迎界面
+                    // 5.发送通知进行根控制器切换：欢迎界面
                     NSNotificationCenter.defaultCenter().postNotificationName(AYSwitchRootViewController, object: false)
                 })
-
+        
             } catch {
                 QL2("json转字典失败")
             }
